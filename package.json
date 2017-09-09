@@ -20,16 +20,18 @@
     "watch": "yarn run clean && (yarn watch-typescript & yarn watch-webpack)",
     "postinstall": "yarn build-ci",
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "test": "yarn lint && if [ ! -f ./dist/index.html ]; then echo \"index.html is missing\"; exit 1; fi; if [ ! -d ./dist/js ]; then echo \"dist/js is missing\"; exit 1; fi; if [ ! -d ./dist/css ]; then echo \"dist/css is missing\"; exit 1; fi; find -L dist"
+    "test": "yarn lint && if [ ! -f ./dist/index.html ]; then echo \"index.html is missing\"; exit 1; fi; if [ ! -d ./dist/js ]; then echo \"dist/js is missing\"; exit 1; fi; if [ ! -d ./dist/css ]; then echo \"dist/css is missing\"; exit 1; fi; if [ ! -d ./dist/images ]; then echo \"dist/images is missing\"; exit 1; fi; find -L dist"
   },
   "devDependencies": {
     "@types/command-line-args": "^4.0.1",
     "@types/core-js": "^0.9.42",
     "@types/node": "^8.0.24",
+    "@types/react": "^16.0.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "command-line-args": "^4.0.7",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.7",
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -43,5 +45,11 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "lencse-getmdl-dashboard": "^1.0.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "ts-jsonapi": "^2.1.0"
   }
 }

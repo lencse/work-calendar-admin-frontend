@@ -5,7 +5,8 @@ const dirs = {
     views: 'views',
     styles: 'styles',
     build: 'build',
-    dist: 'dist'
+    dist: 'dist',
+    getMdlDashboard: 'node_modules/lencse-getmdl-dashboard'
 }
 
 export default dirs

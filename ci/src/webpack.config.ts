@@ -5,6 +5,7 @@ import * as ExtractTextWebpackPlugin from 'extract-text-webpack-plugin'
 import * as UglifyjsWebpackPlugin from 'uglifyjs-webpack-plugin'
 import * as OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin'
 import * as cssnano from 'cssnano'
+import * as CopyWebpackPlugin from 'copy-webpack-plugin'
 import dirs from './dirs'
 
 interface Config {
@@ -48,7 +49,15 @@ const config: Configs = {
     },
     prod: {
         plugins: [
-            new UglifyjsWebpackPlugin()
+            new UglifyjsWebpackPlugin(),
+            new OptimizeCssAssetsWebpackPlugin({
+                cssProcessor: cssnano,
+                cssProcessorOptions: {
+                    discardComments: {
+                        removeAll: true
+                    }
+                }
+            })
         ],
         fileNames: {
             js: '[name].[hash].js',
@@ -73,7 +82,13 @@ const config: Configs = {
 const effective = config[mode]
 
 module.exports =  {
-    entry: [`./${dirs.build}/main.js`, `./${dirs.styles}/main.scss` ],
+    entry: [
+        `./${dirs.build}/main.js`,
+        `./${dirs.styles}/main.scss`,
+        `./${dirs.getMdlDashboard}/src/application.scss`,
+        `./${dirs.getMdlDashboard}/build/dark-material.js`,
+        `./${dirs.getMdlDashboard}/build/dark-material-vendor.css`
+    ],
     output: {
         path: path.resolve(dirs.projectRoot, dirs.dist),
         filename: `js/${effective.fileNames.js}`
@@ -81,15 +96,24 @@ module.exports =  {
     module: {
         loaders: effective.loaders.concat([
             {
+                test: /\.css$/,
+                loader: ExtractTextWebpackPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?url=false'
+                })
+            }, {
                 test: /\.scss$/,
                 loader: ExtractTextWebpackPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader!sass-loader'
+                    use: 'css-loader?url=false!sass-loader'
                 })
             }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            }, {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: 'file-loader'
             }
         ])
     },
@@ -100,14 +124,10 @@ module.exports =  {
             inject: 'body'
         }),
         new ExtractTextWebpackPlugin(`css/${effective.fileNames.css}`),
-        new OptimizeCssAssetsWebpackPlugin({
-            cssProcessor: cssnano,
-            cssProcessorOptions: {
-                discardComments: {
-                    removeAll: true
-                }
-            }
-        })
+        new CopyWebpackPlugin([{
+            from: `${dirs.getMdlDashboard}/src/images`,
+            to: 'images'
+        }])
     ]),
     devServer: effective.devServer
 }
