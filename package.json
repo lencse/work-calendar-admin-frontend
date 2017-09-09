@@ -8,5 +8,40 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lencse/work-calendar-admin-frontend.git"
+  },
+  "scripts": {
+    "build-ci": "rm -rf ci/bin && tsc -p ./ci/src --outDir ./ci/bin",
+    "clean": "rm -rf build dist",
+    "build-typescript": "tsc -p ./src --outDir ./build",
+    "build-webpack": "webpack --colors --progress --config ./ci/bin/webpack.config.js",
+    "build": "yarn run clean && yarn build-typescript && yarn build-webpack",
+    "watch-typescript": "tsc -p ./src --outDir ./build --watch",
+    "watch-webpack": "webpack-dev-server --config ./ci/bin/webpack.config.js --port 8211",
+    "watch": "yarn run clean && (yarn watch-typescript & yarn watch-webpack)",
+    "postinstall": "yarn build-ci",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "test": "yarn lint && if [ ! -f ./dist/index.html ]; then echo \"index.html is missing\"; exit 1; fi; if [ ! -d ./dist/js ]; then echo \"dist/js is missing\"; exit 1; fi; if [ ! -d ./dist/css ]; then echo \"dist/css is missing\"; exit 1; fi; find -L dist"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^4.0.1",
+    "@types/core-js": "^0.9.42",
+    "@types/node": "^8.0.24",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "command-line-args": "^4.0.7",
+    "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "optimize-css-assets-webpack-plugin": "^3.1.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "tslint": "^5.7.0",
+    "typescript": "^2.4.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   }
 }
