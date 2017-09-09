@@ -1,0 +1,12 @@
+{
+  "name": "work-calendar-admin-frontend",
+  "version": "1.0.0",
+  "description": "Work calendar admin frontend",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Levente Löki <leventeloki@gmail.com> (https://lokilevente.hu/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lencse/work-calendar-admin-frontend.git"
+  }
+}
