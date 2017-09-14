@@ -1,18 +1,22 @@
 import * as React from 'react'
-import Header from './Header'
+import Layout from './Layout'
+import State from '../Store/State'
 
-export default class AdminMain extends React.Component<{}, {}> {
+export default class AdminMain extends React.Component<{}, State> {
+
+    constructor() {
+        super()
+        this.state = State.getInitialState()
+    }
 
     public render() {
-        return (
-            <div className='mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header is-small-screen'>
-                <Header />
-                <main className='mdl-layout__content'>
-                    <div className='mdl-grid'>
-                    </div>
-                </main>
-            </div>
-        )
+        return <Layout dayTypes={ this.state.dayTypes } />
+    }
+
+    public componentDidMount() {
+        this.state.load().then((newState) => {
+            this.setState(newState)
+        })
     }
 
 }
