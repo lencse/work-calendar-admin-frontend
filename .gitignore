@@ -3,4 +3,5 @@ node_modules
 /build
 /dist
 .sass-cache
-/config
+/config/*
+!/config/.gitkeep
