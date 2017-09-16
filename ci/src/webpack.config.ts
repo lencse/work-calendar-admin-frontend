@@ -85,7 +85,7 @@ module.exports =  {
     entry: [
         `./${dirs.build}/main.js`,
         `./${dirs.styles}/main.scss`,
-        `./${dirs.getMdlDashboard}/src/application.scss`,
+        // `./${dirs.getMdlDashboard}/src/application.scss`,
         `./${dirs.getMdlDashboard}/build/dark-material.js`,
         `./${dirs.getMdlDashboard}/build/dark-material-vendor.css`
     ],

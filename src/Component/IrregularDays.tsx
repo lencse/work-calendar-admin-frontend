@@ -6,8 +6,7 @@ export default class IrregularDays extends React.Component<{}, {}> {
 
     public render() {
         return (
-            <div className='mdl-card__supporting-text'>
-                <table className='mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp projects-table'>
+                <table className='mdl-data-table mdl-js-data-table mdl-data-table--selectable projects-table'>
                     <thead>
                         <tr>
                             <th className='mdl-data-table__cell--non-numeric'>Project</th>
@@ -76,7 +75,6 @@ export default class IrregularDays extends React.Component<{}, {}> {
                     </tr>
                     </tbody>
                 </table>
-            </div>
         )
     }
 
