@@ -38,7 +38,7 @@ export default class Sidebar extends React.Component<SidebarProps, {}> {
                     { year.year }
                     <label className='mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect icon-toggle--colored-red' htmlFor={ `checkbox-${year.year}` }>
                         <input type='checkbox' id={ `checkbox-${year.year}` } checked={ year.isEnabled } className='mdl-icon-toggle__input' readOnly={ true } />
-                        <i className='mdl-icon-toggle__label material-icons'>check</i>
+                        <i className='mdl-icon-toggle__label material-icons'>format_bold</i>
                     </label>
                 </a>
             )

@@ -4,6 +4,10 @@ export default class Year {
         return '/year'
     }
 
+    // public getResourceUri(): string {
+    //     return `${Year.resourceUri()}/${this.year}`
+    // }
+
     public year: number
     public isEnabled: boolean
 

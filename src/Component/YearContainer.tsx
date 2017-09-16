@@ -2,6 +2,7 @@ import * as React from 'react'
 import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import IrregularDays from './IrregularDays'
+import store from '../Store/Store'
 
 export interface YearContainerProps {
     year: Year
@@ -24,6 +25,7 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                                     id={ `checkbox-${year.year}` }
                                     checked={ year.isEnabled }
                                     className='mdl-checkbox__input'
+                                    onChange={ this.toggle.bind(this) }
                                 />
                                 <span className='mdl-checkbox__label'></span>
                             </label>
@@ -33,6 +35,10 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                 </div>
             </div>
         )
+    }
+
+    private toggle(e: any) {
+        store.toggleYear(this.props.year)
     }
 
 }

@@ -22,7 +22,7 @@ export default class Content extends React.Component<ContentProps, {}> {
     }
 
     private years(): JSX.Element[] {
-        return this.props.years.reverse().map(
+        return this.props.years.map(
             (year: Year) => <YearContainer key={ year.year } year={ year } />
         )
     }

@@ -1,12 +1,13 @@
 import * as React from 'react'
 import Layout from './Layout'
 import State from '../Store/State'
+import store, { StoreSubscriber } from '../Store/Store'
 
-export default class AdminMain extends React.Component<{}, State> {
+export default class AdminMain extends React.Component<{}, State> implements StoreSubscriber {
 
     constructor() {
         super()
-        this.state = State.getInitialState()
+        store.subscribe(this)
     }
 
     public render() {
@@ -18,10 +19,16 @@ export default class AdminMain extends React.Component<{}, State> {
         )
     }
 
+    public update(newState: State) {
+        this.setState(newState)
+    }
+
+    public init(initialState: State) {
+        this.state = initialState
+    }
+
     public componentDidMount() {
-        this.state.load().then((newState) => {
-            this.setState(newState)
-        })
+        store.load()
     }
 
 }
