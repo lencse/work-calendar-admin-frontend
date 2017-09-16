@@ -10,7 +10,12 @@ export default class AdminMain extends React.Component<{}, State> {
     }
 
     public render() {
-        return <Layout dayTypes={ this.state.dayTypes } />
+        return (
+            <Layout
+                dayTypes={ this.state.dayTypes }
+                years={ this.state.years }
+            />
+        )
     }
 
     public componentDidMount() {

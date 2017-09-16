@@ -1,4 +1,5 @@
 import DayType from './DayType'
+import Year from './Year'
 import { Deserializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 import config from '../Config/config'
@@ -12,10 +13,12 @@ export default class State {
     }
 
     public dayTypes: DayType[] = []
+    public years: Year[] = []
 
     public load(): Promise<State> {
         return this.chain(this, [
-            DayType.resourceUri()
+            DayType.resourceUri(),
+            Year.resourceUri()
         ])
     }
 
@@ -45,6 +48,9 @@ export default class State {
     private resolveDelta(path: string, resource: any): any {
         if (DayType.resourceUri() === path) {
             return { dayTypes: resource }
+        }
+        if (Year.resourceUri() === path) {
+            return { years: resource.sort((year1: Year, year2: Year) => year1.year - year2.year) }
         }
     }
 

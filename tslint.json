@@ -32,7 +32,8 @@
         "interface-name": false,
         "no-console": [
             true, "log"
-        ]
+        ],
+        "max-line-length": [true, 280]
     },
     "rulesDirectory": []
 }
