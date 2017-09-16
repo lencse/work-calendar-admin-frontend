@@ -3,6 +3,7 @@ import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import IrregularDays from './IrregularDays'
 import store from '../Store/Store'
+import { Checkbox, Card } from 'react-mdl'
 
 export interface YearContainerProps {
     year: Year
@@ -19,16 +20,12 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                     <div className='mdl-card__title'>
                         <h2 className='mdl-card__title-text'>
                             { year.year }
-                            <label className='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect checkbox--colored-green' htmlFor={ `checkbox-${year.year}` }>
-                                <input
-                                    type='checkbox'
-                                    id={ `checkbox-${year.year}` }
-                                    checked={ year.isEnabled }
-                                    className='mdl-checkbox__input'
-                                    onChange={ this.toggle.bind(this) }
-                                />
-                                <span className='mdl-checkbox__label'></span>
-                            </label>
+                            <Checkbox
+                                checked={ year.isEnabled }
+                                className='checkbox--colored-light-blue'
+                                onChange={ this.toggle.bind(this) }
+                                label=''
+                            />
                         </h2>
                     </div>
                     <IrregularDays />

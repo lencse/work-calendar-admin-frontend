@@ -30,6 +30,7 @@
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.24",
     "@types/react": "^16.0.5",
+    "@types/react-mdl": "^1.7.22",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
@@ -56,6 +57,7 @@
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-mdl": "^1.10.3",
     "ts-jsonapi": "^2.1.0"
   }
 }
