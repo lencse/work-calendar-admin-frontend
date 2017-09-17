@@ -19,7 +19,7 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                 className='mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone'
                 shadow={ 4 }
             >
-                <CardTitle className={ year.isEnabled ? 'year-enabled' : '' }>
+                <CardTitle className={ year.isEnabled ? 'color-text--teal' : '' }>
                     { year.year }
                 </CardTitle>
                 <CardText>
@@ -30,15 +30,18 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                         checked={ year.isEnabled }
                         className='checkbox--colored-teal'
                         onChange={ this.toggle.bind(this) }
-                        label=''
+                        ripple
+                        label='Aktív'
                     />
                 </CardMenu>
             </Card>
         )
     }
 
-    private toggle(e: any) {
-        store.toggleYear(this.props.year)
+    private toggle() {
+        const year = this.props.year
+        year.isEnabled = !year.isEnabled
+        store.saveYear(this.props.year)
     }
 
 }

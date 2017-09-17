@@ -39,8 +39,7 @@ export class Store {
         })
     }
 
-    public toggleYear(year: Year) {
-        year.isEnabled = !year.isEnabled
+    public saveYear(year: Year) {
         fetch(
             `${config.apiUrl}/year/${year.year}`,
             {
@@ -52,6 +51,23 @@ export class Store {
             return resp.json().then((data) => {
                 const resource = deserializer.deserialize(data)
                 this.state = this.state.updateYear(deserializer.deserialize(data))
+                this.notifyAll()
+            })
+        })
+    }
+
+    public addYear(year: Year) {
+        fetch(
+            `${config.apiUrl}/year/`,
+            {
+                method: 'POST',
+                body: JSON.stringify(yearSerializer.serialize(year))
+            }
+            // { credentials: 'include' }
+        ).then((resp) => {
+            return resp.json().then((data) => {
+                const resource = deserializer.deserialize(data)
+                this.state = this.state.addYear(deserializer.deserialize(data))
                 this.notifyAll()
             })
         })
@@ -94,7 +110,7 @@ export class Store {
             return { dayTypes: resource }
         }
         if (Year.resourceUri() === path) {
-            return { years: resource.sort((year1: Year, year2: Year) => year1.year - year2.year) }
+            return { years: resource }
         }
     }
 

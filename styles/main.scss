@@ -1,5 +1,46 @@
 @import '../node_modules/lencse-getmdl-dashboard/src/application';
 
-.year-enabled {
-    color: $color-teal;
+// $card-background-color: $background-color;
+// $card-text-color: unquote("rgba(#{$color-white}, 0.8)");
+// $card-supporting-text-text-color: unquote("rgba(#{$color-white}, 0.8)");
+// $card-subtitle-color: unquote("rgba(#{$color-white}, 0.5)");
+// $card-border-color: unquote("rgba(#{$color-white},0.05)");
+
+// $card-title-background-color: unquote("rgba(#{$color-black}, 0.3)");
+// $card-actions-background-color: unquote("rgba(#{$color-white},0.05)");
+// $card-text-color: unquote("rgba(#{$color-white}, 0.8)");
+// $card-link-color: unquote("rgb(#{$color-primary})");
+// $card-href-color: unquote("rgb(#{$color-primary})");
+
+// $card-title-img-color: unquote("rgb(#{$color-white})");
+// $card-deg-color: unquote("rgba(#{$color-white}, 0.9)");
+
+#button-add-year {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    z-index: 500;
+    background: $color-teal;
+}
+
+dialog.mdl-dialog {
+    background: $card-background-color;
+    color: $card-text-color;
+
+    .mdl-dialog__title {
+        text-transform: uppercase;
+    }
+
+    .cancel-button {
+        color: $card-subtitle-color;
+    }
+
+    .mdl-textfield__label {
+        color: $card-subtitle-color;
+    }
+
+}
+
+#content-container {
+    padding-bottom: 88px;
 }

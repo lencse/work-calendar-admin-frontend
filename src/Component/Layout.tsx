@@ -24,7 +24,7 @@ export default class Layout extends React.Component<LayoutProps, {}> {
                         dayTypes={ this.props.dayTypes }
                         years={ this.props.years }
                     />
-                  </main>
+                </main>
             </div>
         )
     }

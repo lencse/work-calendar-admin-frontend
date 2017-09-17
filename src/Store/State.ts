@@ -9,11 +9,17 @@ export default class State {
 
     public updateYear(year: Year) {
         return assign(this, {
-            years: this.years.map((transform) => {
-                return transform.year === year.year
+            years: this.years.map((original) => {
+                return original.year === year.year
                     ? year
-                    : transform
+                    : original
             })
+        })
+    }
+
+    public addYear(year: Year) {
+        return assign(this, {
+            years: this.years.concat([year])
         })
     }
 

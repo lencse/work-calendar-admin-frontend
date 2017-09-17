@@ -88,6 +88,7 @@ module.exports =  {
         // `./${dirs.getMdlDashboard}/src/application.scss`,
         `./${dirs.getMdlDashboard}/build/dark-material.js`,
         `./${dirs.getMdlDashboard}/build/dark-material-vendor.css`
+        // ,`./${dirs.getMdlDashboard}/bower_components/material-design-lite/material.js`
     ],
     output: {
         path: path.resolve(dirs.projectRoot, dirs.dist),
