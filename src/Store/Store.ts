@@ -43,7 +43,7 @@ export class Store {
 
     public saveYear(year: Year) {
         fetch(
-            `${config.apiUrl}/year/${year.year}`,
+            `${config.apiUrl}/years/${year.year}`,
             {
                 method: 'PUT',
                 body: JSON.stringify(yearSerializer.serialize(year))
@@ -60,7 +60,7 @@ export class Store {
 
     public addYear(year: Year) {
         fetch(
-            `${config.apiUrl}/year/`,
+            `${config.apiUrl}/years/`,
             {
                 method: 'POST',
                 body: JSON.stringify(yearSerializer.serialize(year))
