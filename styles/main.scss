@@ -65,6 +65,9 @@ dialog.mdl-dialog {
 
 .chip-day-type.mdl-chip {
     background: $color-gray;
+    .mdl-chip__contact {
+        color: $color-dark-gray;
+    }
     .mdl-chip__text {
         color: $card-supporting-text-text-color
     }

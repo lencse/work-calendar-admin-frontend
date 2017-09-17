@@ -33,12 +33,17 @@ export default class Day extends React.Component<DayProps, {}> {
             'relocated-rest-day': 'orange',
             'relocated-working-day': 'purple',
         }[day.typeKey]
+        const icon = {
+            'non-working-day': 'nature_people',
+            'relocated-rest-day': 'hotel',
+            'relocated-working-day': 'build',
+        }[day.typeKey]
 
         return (
             <tr>
                 <td className='mdl-data-table__cell--non-numeric'>
                     <span className='mdl-chip mdl-chip--contact chip-day-type'>
-                        <span className={ `mdl-chip__contact mdl-color--${color}` }></span>
+                        <i className={ `mdl-chip__contact mdl-color--${color} material-icons` }>{ icon }</i>
                         <span className='mdl-chip__text'>{ this.props.day.dayType.name }</span>
                     </span>
                 </td>
