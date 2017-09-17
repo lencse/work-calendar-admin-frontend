@@ -6,7 +6,7 @@ export default class IrregularDay {
         return '/irregular-days/'
     }
 
-    public id: string
+    public id: number
     public date: Date
     public typeKey: string
     public dayType: DayType

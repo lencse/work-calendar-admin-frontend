@@ -38,6 +38,7 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                         label='Aktív'
                     />
                 </CardMenu>
+                {/* @TODO: Elesites/visszavonas a card actionsbe */}
             </Card>
         )
     }

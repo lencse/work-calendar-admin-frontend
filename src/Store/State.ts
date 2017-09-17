@@ -8,6 +8,7 @@ export default class State {
     public dayTypes: DayType[] = []
     public years: Year[] = []
     public irregularDays: IrregularDay[] = []
+    public editingDay: IrregularDay = null
 
     public updateYear(year: Year) {
         return assign(this, {
@@ -22,6 +23,12 @@ export default class State {
     public addYear(year: Year) {
         return assign(this, {
             years: this.years.concat([year])
+        })
+    }
+
+    public addIrregularDay(irregularDay: IrregularDay) {
+        return assign(this, {
+            irregularDays: this.irregularDays.concat([irregularDay])
         })
     }
 

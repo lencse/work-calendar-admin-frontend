@@ -11,6 +11,7 @@ export interface LayoutProps {
     dayTypes: DayType[]
     years: Year[]
     irregularDays: IrregularDay[]
+    editingDay: IrregularDay
 
 }
 
@@ -26,6 +27,7 @@ export default class Layout extends React.Component<LayoutProps, {}> {
                         dayTypes={ this.props.dayTypes }
                         years={ this.props.years }
                         irregularDays={ this.props.irregularDays }
+                        editingDay={ this.props.editingDay }
                     />
                 </main>
             </div>

@@ -16,6 +16,7 @@ export default class AdminMain extends React.Component<{}, State> implements Sto
                 dayTypes={ this.state.dayTypes }
                 years={ this.state.years }
                 irregularDays={ this.state.irregularDays }
+                editingDay={ this.state.editingDay }
             />
         )
     }

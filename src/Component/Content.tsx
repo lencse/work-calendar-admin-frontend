@@ -4,6 +4,7 @@ import Year from '../Store/Year'
 import YearContainer from './YearContainer'
 import IrregularDays from './IrregularDays'
 import AddYear from './AddYear'
+import AddIrregularDay from './AddIrregularDay'
 import IrregularDay from '../Store/IrregularDay'
 
 export interface ContentProps {
@@ -11,6 +12,7 @@ export interface ContentProps {
     dayTypes: DayType[]
     years: Year[]
     irregularDays: IrregularDay[]
+    editingDay: IrregularDay
 
 }
 
@@ -23,6 +25,10 @@ export default class Content extends React.Component<ContentProps, {}> {
                     { this.years() }
                 </div>
                 <AddYear />
+                <AddIrregularDay
+                    editingDay={ this.props.editingDay }
+                    dayTypes={ this.props.dayTypes }
+                />
             </div>
         )
     }

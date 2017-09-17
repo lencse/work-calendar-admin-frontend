@@ -11,6 +11,11 @@ const yearSerializer = new Serializer('year', {
     attributes: ['year', 'isEnabled']
 })
 
+const irregularDaySerializer = new Serializer('irregularDay', {
+    id: 'id',
+    attributes: ['date', 'description', 'typeKey'],
+})
+
 const deserializer = new Deserializer({ keyForAttribute: 'camelCase' })
 
 export interface StoreSubscriber {
@@ -75,6 +80,41 @@ export class Store {
         })
     }
 
+    public addIrregularDay() {
+        this.state = assign(this.state, { editingDay: new IrregularDay() })
+        this.notifyAll()
+    }
+
+    public cancelIrregularDay() {
+        this.state = assign(this.state, { editingDay: null })
+        this.notifyAll()
+    }
+
+    public updateIrregularDayWith(param: any) {
+        this.state = assign(this.state, { editingDay: assign(this.state.editingDay, param) })
+        this.notifyAll()
+    }
+
+    public saveIrregularDay() {
+        fetch(
+            `${config.apiUrl}/irregular-days/`,
+            {
+                method: 'POST',
+                body: JSON.stringify(irregularDaySerializer.serialize(assign(this.state.editingDay, { typeKey: this.state.editingDay.dayType.key }))
+            }
+            // { credentials: 'include' }
+        ).then((resp) => {
+            return resp.json().then((data) => {
+                // console.log(data)
+                const resource = deserializer.deserialize(data)
+                this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
+                this.notifyAll()
+            })
+        })
+        this.state = assign(this.state, { editingDay: null })
+        this.notifyAll()
+    }
+
     private notifyAll() {
         this.subscribers.forEach((subscriber) => {
             this.notify(subscriber)
@@ -109,11 +149,7 @@ export class Store {
 
     private resolveDelta(path: string, resource: any): any {
         if (DayType.resourceUri() === path) {
-            const dayTypes = []
-            resource.forEach((dayType: DayType) => {
-                dayTypes[dayType.key] = dayType
-            })
-            return { dayTypes }
+            return { dayTypes: resource }
         }
         if (Year.resourceUri() === path) {
             return { years: resource }

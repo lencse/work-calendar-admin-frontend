@@ -17,6 +17,14 @@
 
 #button-add-year {
     position: fixed;
+    left: 1em;
+    bottom: 1em;
+    z-index: 500;
+    background: $color-teal;
+}
+
+#button-add-irregular-day {
+    position: fixed;
     right: 1em;
     bottom: 1em;
     z-index: 500;
@@ -71,4 +79,8 @@ dialog.mdl-dialog {
     .mdl-chip__text {
         color: $card-supporting-text-text-color
     }
+}
+
+#dialog-irregular-day {
+    width: fit-content !important;
 }
