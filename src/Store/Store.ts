@@ -1,5 +1,6 @@
 import DayType from './DayType'
 import Year from './Year'
+import IrregularDay from './IrregularDay'
 import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 import config from '../Config/config'
@@ -32,7 +33,8 @@ export class Store {
     public load() {
         this.chain(this.state, [
             DayType.resourceUri(),
-            Year.resourceUri()
+            Year.resourceUri(),
+            IrregularDay.resourceUri()
         ]).then((state) => {
             this.state = state
             this.notifyAll()
@@ -107,10 +109,21 @@ export class Store {
 
     private resolveDelta(path: string, resource: any): any {
         if (DayType.resourceUri() === path) {
-            return { dayTypes: resource }
+            const dayTypes = []
+            resource.forEach((dayType: DayType) => {
+                dayTypes[dayType.key] = dayType
+            })
+            return { dayTypes }
         }
         if (Year.resourceUri() === path) {
             return { years: resource }
+        }
+        if (IrregularDay.resourceUri() === path) {
+            return {
+                irregularDays: resource.map(
+                    (day: IrregularDay) => assign(day, { date: new Date(day.date) })
+                )
+            }
         }
     }
 

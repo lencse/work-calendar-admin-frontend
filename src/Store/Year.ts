@@ -1,7 +1,7 @@
 export default class Year {
 
     public static resourceUri(): string {
-        return '/year'
+        return '/years/'
     }
 
     // public getResourceUri(): string {

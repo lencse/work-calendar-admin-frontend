@@ -1,7 +1,7 @@
 export default class DayType {
 
     public static resourceUri(): string {
-        return '/day-type'
+        return '/day-types/'
     }
 
     public id: string

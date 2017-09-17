@@ -4,11 +4,13 @@ import Sidebar from './Sidebar'
 import Content from './Content'
 import DayType from '../Store/DayType'
 import Year from '../Store/Year'
+import IrregularDay from '../Store/IrregularDay'
 
 export interface LayoutProps {
 
     dayTypes: DayType[]
     years: Year[]
+    irregularDays: IrregularDay[]
 
 }
 
@@ -23,6 +25,7 @@ export default class Layout extends React.Component<LayoutProps, {}> {
                     <Content
                         dayTypes={ this.props.dayTypes }
                         years={ this.props.years }
+                        irregularDays={ this.props.irregularDays }
                     />
                 </main>
             </div>

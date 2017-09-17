@@ -44,3 +44,28 @@ dialog.mdl-dialog {
 #content-container {
     padding-bottom: 88px;
 }
+
+.mdl-card, .mdl-card__supporting-text {
+    overflow: visible !important;
+}
+
+.select-month {
+    min-width: 10em;
+
+    * {
+        z-index: 10000;
+    }
+
+    ul {
+        background:  red !important;
+        z-index: 10000;
+        position: absolute;
+    }
+}
+
+.chip-day-type.mdl-chip {
+    background: $color-dark-gray;
+    .mdl-chip__text {
+        color: $card-supporting-text-text-color
+    }
+}

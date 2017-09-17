@@ -4,9 +4,13 @@ import Year from '../Store/Year'
 import IrregularDays from './IrregularDays'
 import store from '../Store/Store'
 import { Checkbox, Card, CardTitle, CardText, CardMenu } from 'react-mdl'
+import IrregularDay from '../Store/IrregularDay'
 
 export interface YearContainerProps {
+
     year: Year
+    irregularDays: IrregularDay[]
+
 }
 
 export default class YearContainer extends React.Component<YearContainerProps, {}> {
@@ -23,7 +27,7 @@ export default class YearContainer extends React.Component<YearContainerProps, {
                     { year.year }
                 </CardTitle>
                 <CardText>
-                    <IrregularDays />
+                    <IrregularDays irregularDays={ this.getIrregularDays() } />
                 </CardText>
                 <CardMenu>
                     <Checkbox
@@ -42,6 +46,12 @@ export default class YearContainer extends React.Component<YearContainerProps, {
         const year = this.props.year
         year.isEnabled = !year.isEnabled
         store.saveYear(this.props.year)
+    }
+
+    private getIrregularDays() {
+        return this.props.irregularDays.filter(
+            (day: any) => this.props.year.year === day.date.getFullYear()
+        )
     }
 
 }
