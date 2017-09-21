@@ -56,6 +56,11 @@ const config: Configs = {
                     discardComments: {
                         removeAll: true
                     }
+                },
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
                 }
             })
         ],

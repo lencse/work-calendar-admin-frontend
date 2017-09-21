@@ -58,7 +58,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-mdl": "^1.10.3",
-    "react-mdl-select": "^1.1.5",
     "react-mdl-selectfield": "^0.2.0",
     "ts-jsonapi": "^2.1.0"
   }

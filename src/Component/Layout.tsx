@@ -5,13 +5,14 @@ import Content from './Content'
 import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import IrregularDay from '../Store/IrregularDay'
+import EditedIrregularDay from '../Store/EditedIrregularDay'
 
 export interface LayoutProps {
 
     dayTypes: DayType[]
     years: Year[]
     irregularDays: IrregularDay[]
-    editingDay: IrregularDay
+    editingDay: EditedIrregularDay
 
 }
 

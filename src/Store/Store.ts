@@ -1,6 +1,7 @@
 import DayType from './DayType'
-import Year from './Year'
+import ActiveYear from './ActiveYear'
 import IrregularDay from './IrregularDay'
+import EditedIrregularDay from './EditedIrregularDay'
 import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 import config from '../Config/config'
@@ -38,7 +39,7 @@ export class Store {
     public load() {
         this.chain(this.state, [
             DayType.resourceUri(),
-            Year.resourceUri(),
+            ActiveYear.resourceUri(),
             IrregularDay.resourceUri()
         ]).then((state) => {
             this.state = state
@@ -46,26 +47,9 @@ export class Store {
         })
     }
 
-    public saveYear(year: Year) {
+    public addActiveYear(year: ActiveYear) {
         fetch(
-            `${config.apiUrl}/years/${year.year}`,
-            {
-                method: 'PUT',
-                body: JSON.stringify(yearSerializer.serialize(year))
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                const resource = deserializer.deserialize(data)
-                this.state = this.state.updateYear(deserializer.deserialize(data))
-                this.notifyAll()
-            })
-        })
-    }
-
-    public addYear(year: Year) {
-        fetch(
-            `${config.apiUrl}/years/`,
+            `${config.apiUrl}/active-years/`,
             {
                 method: 'POST',
                 body: JSON.stringify(yearSerializer.serialize(year))
@@ -74,14 +58,35 @@ export class Store {
         ).then((resp) => {
             return resp.json().then((data) => {
                 const resource = deserializer.deserialize(data)
-                this.state = this.state.addYear(deserializer.deserialize(data))
+                this.state = this.state.addActiveYear(deserializer.deserialize(data))
+                this.notifyAll()
+            })
+        })
+    }
+
+    public removeActiveYear(year: ActiveYear) {
+        fetch(
+            `${config.apiUrl}/active-years/${year.year}`,
+            {
+                method: 'DELETE',
+            }
+            // { credentials: 'include' }
+        ).then((resp) => {
+            return resp.json().then((data) => {
+                const resource = deserializer.deserialize(data)
+                this.state = this.state.removeActiveYear(deserializer.deserialize(data))
                 this.notifyAll()
             })
         })
     }
 
     public addIrregularDay() {
-        this.state = assign(this.state, { editingDay: new IrregularDay() })
+        this.state = assign(this.state, { editingDay: new EditedIrregularDay() })
+        this.notifyAll()
+    }
+
+    public editIrregularDay(irregularDay: IrregularDay) {
+        this.state = assign(this.state, { editingDay: EditedIrregularDay.fromIrregularDay(irregularDay) })
         this.notifyAll()
     }
 
@@ -96,21 +101,40 @@ export class Store {
     }
 
     public saveIrregularDay() {
-        fetch(
-            `${config.apiUrl}/irregular-days/`,
-            {
-                method: 'POST',
-                body: JSON.stringify(irregularDaySerializer.serialize(assign(this.state.editingDay, { typeKey: this.state.editingDay.dayType.key }))
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                // console.log(data)
-                const resource = deserializer.deserialize(data)
-                this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
-                this.notifyAll()
+        if (this.state.editingDay.id) {
+            fetch(
+                `${config.apiUrl}/irregular-days/${this.state.editingDay.id}`,
+                {
+                    method: 'PUT',
+                    body: JSON.stringify(irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay()))
+                }
+                // { credentials: 'include' }
+            ).then((resp) => {
+                return resp.json().then((data) => {
+                    // console.log(data)
+                    const resource = deserializer.deserialize(data)
+                    this.state = this.state.updateIrregularDay(assign(resource, { date: new Date(resource.date) }))
+                    this.notifyAll()
+                })
             })
-        })
+        } else {
+            fetch(
+                `${config.apiUrl}/irregular-days/`,
+                {
+                    method: 'POST',
+                    body: JSON.stringify(irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay()))
+                }
+                // { credentials: 'include' }
+            ).then((resp) => {
+                return resp.json().then((data) => {
+                    // console.log(data)
+                    const resource = deserializer.deserialize(data)
+                    this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
+                    this.notifyAll()
+                })
+            })
+
+        }
         this.state = assign(this.state, { editingDay: null })
         this.notifyAll()
     }
@@ -151,8 +175,8 @@ export class Store {
         if (DayType.resourceUri() === path) {
             return { dayTypes: resource }
         }
-        if (Year.resourceUri() === path) {
-            return { years: resource }
+        if (ActiveYear.resourceUri() === path) {
+            return { activeYears: resource }
         }
         if (IrregularDay.resourceUri() === path) {
             return {

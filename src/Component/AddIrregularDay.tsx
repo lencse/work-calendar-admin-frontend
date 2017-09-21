@@ -6,28 +6,16 @@ import store from '../Store/Store'
 import IrregularDay from '../Store/IrregularDay'
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Textfield } from 'react-mdl'
 import { SelectField, Option } from 'react-mdl-selectfield'
+import EditedIrregularDay from '../Store/EditedIrregularDay'
 
 interface AddIrregularDayProps {
 
-    editingDay: IrregularDay
+    editingDay: EditedIrregularDay
     dayTypes: DayType[]
 
 }
 
-interface AddIrregularDayState {
-
-    date: string
-
-}
-
-export default class AddIrregularDay extends React.Component<AddIrregularDayProps, AddIrregularDayState> {
-
-    constructor() {
-        super(...arguments)
-        this.state = {
-            date: ''
-        }
-    }
+export default class AddIrregularDay extends React.Component<AddIrregularDayProps, {}> {
 
     public render() {
         const day = this.props.editingDay
@@ -71,7 +59,7 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
                         className='mdl-textfield__input'
                         type='date'
                         id='input-year'
-                        value={ this.state.date }
+                        value={ this.props.editingDay.dateString }
                         onChange={ this.onChangeDate.bind(this) }
                     />
                     <label className='mdl-textfield__label' htmlFor='input-year'></label>
@@ -80,7 +68,7 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
 
                 <SelectField
                     label={'Típus'}
-                    value={ this.props.editingDay.dayType ? this.props.editingDay.dayType : null }
+                    value={ this.props.editingDay.typeKey ? this.props.editingDay.typeKey : null }
                     onChange={ this.onChangeType.bind(this) }
                 >
                     { this.dayTypes() }
@@ -102,7 +90,7 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
     }
 
     private dayTypes() {
-        return this.props.dayTypes.map((dayType) => <Option key={ dayType.key } value={ dayType }>{ dayType.name }</Option>)
+        return this.props.dayTypes.map((dayType) => <Option key={ dayType.key } value={ dayType.key }>{ dayType.name }</Option>)
     }
 
     private openDialog() {
@@ -114,16 +102,16 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
     }
 
     private save() {
-        store.updateIrregularDayWith({ date: new Date(this.state.date) })
         store.saveIrregularDay()
     }
 
     private onChangeDate(event: React.FormEvent<HTMLInputElement>) {
-        this.setState({ date: event.currentTarget.value })
+        console.log(event.currentTarget.value)
+        store.updateIrregularDayWith({ dateString: event.currentTarget.value })
     }
 
-    private onChangeType(dayType: DayType) {
-        store.updateIrregularDayWith({ dayType })
+    private onChangeType(typeKey: string) {
+        store.updateIrregularDayWith({ typeKey })
     }
 
     private onChangeDescription(event: React.FormEvent<HTMLInputElement>) {

@@ -45,8 +45,11 @@ export default class YearContainer extends React.Component<YearContainerProps, {
 
     private toggle() {
         const year = this.props.year
-        year.isEnabled = !year.isEnabled
-        store.saveYear(this.props.year)
+        if (!year.isEnabled) {
+            store.addActiveYear(this.props.year)
+        } else {
+            store.removeActiveYear(this.props.year)
+        }
     }
 
     private getIrregularDays() {

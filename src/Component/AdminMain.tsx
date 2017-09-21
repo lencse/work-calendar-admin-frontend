@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Layout from './Layout'
-import State from '../Store/State'
+import State, { years } from '../Store/State'
 import store, { StoreSubscriber } from '../Store/Store'
 
 export default class AdminMain extends React.Component<{}, State> implements StoreSubscriber {
@@ -14,7 +14,7 @@ export default class AdminMain extends React.Component<{}, State> implements Sto
         return (
             <Layout
                 dayTypes={ this.state.dayTypes }
-                years={ this.state.years }
+                years={ years(this.state) }
                 irregularDays={ this.state.irregularDays }
                 editingDay={ this.state.editingDay }
             />

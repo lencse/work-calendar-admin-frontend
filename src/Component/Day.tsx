@@ -2,6 +2,7 @@ import * as React from 'react'
 import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import IrregularDay from '../Store/IrregularDay'
+import store from '../Store/Store'
 
 export interface DayProps {
 
@@ -40,7 +41,7 @@ export default class Day extends React.Component<DayProps, {}> {
         }[day.typeKey]
 
         return (
-            <tr>
+            <tr onClick={ this.onClick.bind(this) }>
                 <td className='mdl-data-table__cell--non-numeric'>
                     <span className='mdl-chip mdl-chip--contact chip-day-type'>
                         <i className={ `mdl-chip__contact mdl-color--${color} material-icons` }>{ icon }</i>
@@ -55,6 +56,10 @@ export default class Day extends React.Component<DayProps, {}> {
                 </td>
             </tr>
         )
+    }
+
+    private onClick() {
+        store.editIrregularDay(this.props.day)
     }
 
 }

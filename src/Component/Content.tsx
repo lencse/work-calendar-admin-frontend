@@ -3,16 +3,16 @@ import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import YearContainer from './YearContainer'
 import IrregularDays from './IrregularDays'
-import AddYear from './AddYear'
 import AddIrregularDay from './AddIrregularDay'
 import IrregularDay from '../Store/IrregularDay'
+import EditedIrregularDay from '../Store/EditedIrregularDay'
 
 export interface ContentProps {
 
     dayTypes: DayType[]
     years: Year[]
     irregularDays: IrregularDay[]
-    editingDay: IrregularDay
+    editingDay: EditedIrregularDay
 
 }
 
@@ -24,7 +24,6 @@ export default class Content extends React.Component<ContentProps, {}> {
                 <div className='mdl-grid'>
                     { this.years() }
                 </div>
-                <AddYear />
                 <AddIrregularDay
                     editingDay={ this.props.editingDay }
                     dayTypes={ this.props.dayTypes }
