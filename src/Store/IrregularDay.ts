@@ -12,4 +12,6 @@ export default class IrregularDay {
     public dayType: DayType
     public description: string
 
+    public toDelete: boolean = false
+
 }

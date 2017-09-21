@@ -3,6 +3,7 @@ import DayType from '../Store/DayType'
 import Year from '../Store/Year'
 import IrregularDay from '../Store/IrregularDay'
 import store from '../Store/Store'
+import * as reactClickOutside from 'react-click-outside'
 
 export interface DayProps {
 
@@ -10,7 +11,7 @@ export interface DayProps {
 
 }
 
-export default class Day extends React.Component<DayProps, {}> {
+class Day extends React.Component<DayProps, {}> {
 
     private months = [
         'január',
@@ -41,7 +42,7 @@ export default class Day extends React.Component<DayProps, {}> {
         }[day.typeKey]
 
         return (
-            <tr onClick={ this.onClick.bind(this) }>
+            <tr>
                 <td className='mdl-data-table__cell--non-numeric'>
                     <span className='mdl-chip mdl-chip--contact chip-day-type'>
                         <i className={ `mdl-chip__contact mdl-color--${color} material-icons` }>{ icon }</i>
@@ -54,12 +55,50 @@ export default class Day extends React.Component<DayProps, {}> {
                 <td className='mdl-data-table__cell--non-numeric'>
                     { this.props.day.description }
                 </td>
+                <td>
+                    { this.actionComponents() }
+
+                </td>
             </tr>
         )
     }
 
-    private onClick() {
+    public handleClickOutside() {
+        store.cancelDelete(this.props.day)
+    }
+
+    private actionComponents(): JSX.Element {
+        return this.props.day.toDelete
+            ? (
+                <span>
+                    <button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored-red' onClick={ this.onDelete.bind(this) }>
+                        <i className='material-icons'>delete</i>
+                        Rendben
+                    </button>
+                </span>
+        ) : (
+                <span>
+                <button className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onEdit.bind(this) }>
+                    <i className='material-icons'>edit</i>
+                </button>
+                    <button className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onMarkForDelete.bind(this) }>
+                        <i className='material-icons'>delete</i>
+                    </button>
+                </span>
+            )
+    }
+
+    private onEdit() {
         store.editIrregularDay(this.props.day)
     }
 
+    private onMarkForDelete() {
+        store.markForDelete(this.props.day)
+    }
+
+    private onDelete() {
+        store.deleteIrregularDay(this.props.day)
+    }
 }
+
+export default reactClickOutside(Day)

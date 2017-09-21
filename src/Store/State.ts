@@ -55,6 +55,12 @@ export default class State {
         })
     }
 
+    public deleteIrregularDay(irregularDay: IrregularDay) {
+        return assign(this, {
+            irregularDays: this.irregularDays.filter((test) => test.id !== irregularDay.id)
+        })
+    }
+
     public updateIrregularDay(irregularDay: IrregularDay) {
         return assign(this, {
             irregularDays: this.irregularDays.map((original) => {
@@ -62,6 +68,18 @@ export default class State {
                     ? irregularDay
                     : original
             })
+        })
+    }
+
+    public markForDelete(day: IrregularDay) {
+        return assign(this, {
+            irregularDays: this.irregularDays.map((test) => test.id === day.id ? assign(test, { toDelete: true }) : test)
+        })
+    }
+
+    public cancelDelete(day: IrregularDay) {
+        return assign(this, {
+            irregularDays: this.irregularDays.map((test) => test.id === day.id ? assign(test, { toDelete: false }) : test)
         })
     }
 

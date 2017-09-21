@@ -106,7 +106,6 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
     }
 
     private onChangeDate(event: React.FormEvent<HTMLInputElement>) {
-        console.log(event.currentTarget.value)
         store.updateIrregularDayWith({ dateString: event.currentTarget.value })
     }
 

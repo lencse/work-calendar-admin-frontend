@@ -7,6 +7,7 @@ import { assign } from 'lodash'
 import config from '../Config/config'
 import State from './State'
 
+
 const yearSerializer = new Serializer('year', {
     id: 'id',
     attributes: ['year', 'isEnabled']
@@ -136,6 +137,29 @@ export class Store {
 
         }
         this.state = assign(this.state, { editingDay: null })
+        this.notifyAll()
+    }
+
+    public deleteIrregularDay(day: IrregularDay) {
+        fetch(
+            `${config.apiUrl}/irregular-days/${day.id}`,
+            {
+                method: 'DELETE'
+            }
+            // { credentials: 'include' }
+        ).then(() => {
+            this.state = this.state.deleteIrregularDay(day)
+            this.notifyAll()
+        })
+    }
+
+    public markForDelete(day: IrregularDay) {
+        this.state.markForDelete(day)
+        this.notifyAll()
+    }
+
+    public cancelDelete(day: IrregularDay) {
+        this.state.cancelDelete(day)
         this.notifyAll()
     }
 
