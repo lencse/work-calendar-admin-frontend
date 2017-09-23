@@ -1,6 +1,5 @@
 import * as React from 'react'
 import DayType from '../Store/DayType'
-import Year from '../Store/Year'
 import YearContainer from './YearContainer'
 import IrregularDays from './IrregularDays'
 import AddIrregularDay from './AddIrregularDay'
@@ -10,7 +9,7 @@ import EditedIrregularDay from '../Store/EditedIrregularDay'
 export interface ContentProps {
 
     dayTypes: DayType[]
-    years: Year[]
+    years: number[]
     irregularDays: IrregularDay[]
     editingDay: EditedIrregularDay
 
@@ -33,8 +32,8 @@ export default class Content extends React.Component<ContentProps, {}> {
     }
 
     private years(): JSX.Element[] {
-        return this.props.years.sort((year1, year2) => year2.year - year1.year).map(
-            (year: Year) => <YearContainer key={ year.year } year={ year } irregularDays={ this.props.irregularDays }/>
+        return this.props.years.sort((year1, year2) => year2 - year1).map(
+            (year: number) => <YearContainer key={ year } year={ year } irregularDays={ this.props.irregularDays }/>
         )
     }
 

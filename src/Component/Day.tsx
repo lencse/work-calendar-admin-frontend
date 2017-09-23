@@ -1,6 +1,5 @@
 import * as React from 'react'
 import DayType from '../Store/DayType'
-import Year from '../Store/Year'
 import IrregularDay from '../Store/IrregularDay'
 import store from '../Store/Store'
 import * as reactClickOutside from 'react-click-outside'

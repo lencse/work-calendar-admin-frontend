@@ -1,19 +1,14 @@
 import DayType from './DayType'
-import Year from './Year'
-import ActiveYear from './ActiveYear'
 import IrregularDay from './IrregularDay'
 import EditedIrregularDay from './EditedIrregularDay'
 import { assign } from 'lodash'
 
-export function years(state: State): Year[] {
+export function years(state: State): number[] {
     const result = []
     state.irregularDays.forEach((day) => {
         const year = day.date.getFullYear()
         if (!result[year]) {
-            result[year] = {
-                year,
-                isEnabled: state.activeYears.filter((activeYear) => activeYear.year === year ).length === 1
-            }
+            result[year] = year
         }
     })
 
@@ -23,31 +18,8 @@ export function years(state: State): Year[] {
 export default class State {
 
     public dayTypes: DayType[] = []
-    public activeYears: ActiveYear[] = []
     public irregularDays: IrregularDay[] = []
     public editingDay: EditedIrregularDay = null
-
-    // public updateYear(year: Year) {
-    //     return assign(this, {
-    //         years: this.activeYears.map((original) => {
-    //             return original.year === year.year
-    //                 ? year
-    //                 : original
-    //         })
-    //     })
-    // }
-
-    public addActiveYear(activeYear: ActiveYear) {
-        return assign(this, {
-            activeYears: this.activeYears.concat([activeYear])
-        })
-    }
-
-    public removeActiveYear(activeYear: ActiveYear) {
-        return assign(this, {
-            activeYears: this.activeYears.filter((year) => activeYear.year !== year.year)
-        })
-    }
 
     public addIrregularDay(irregularDay: IrregularDay) {
         return assign(this, {

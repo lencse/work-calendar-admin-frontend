@@ -1,17 +1,10 @@
 import DayType from './DayType'
-import ActiveYear from './ActiveYear'
 import IrregularDay from './IrregularDay'
 import EditedIrregularDay from './EditedIrregularDay'
 import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 import config from '../Config/config'
 import State from './State'
-
-
-const yearSerializer = new Serializer('year', {
-    id: 'id',
-    attributes: ['year', 'isEnabled']
-})
 
 const irregularDaySerializer = new Serializer('irregularDay', {
     id: 'id',
@@ -40,44 +33,10 @@ export class Store {
     public load() {
         this.chain(this.state, [
             DayType.resourceUri(),
-            ActiveYear.resourceUri(),
             IrregularDay.resourceUri()
         ]).then((state) => {
             this.state = state
             this.notifyAll()
-        })
-    }
-
-    public addActiveYear(year: ActiveYear) {
-        fetch(
-            `${config.apiUrl}/active-years/`,
-            {
-                method: 'POST',
-                body: JSON.stringify(yearSerializer.serialize(year))
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                const resource = deserializer.deserialize(data)
-                this.state = this.state.addActiveYear(deserializer.deserialize(data))
-                this.notifyAll()
-            })
-        })
-    }
-
-    public removeActiveYear(year: ActiveYear) {
-        fetch(
-            `${config.apiUrl}/active-years/${year.year}`,
-            {
-                method: 'DELETE',
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                const resource = deserializer.deserialize(data)
-                this.state = this.state.removeActiveYear(deserializer.deserialize(data))
-                this.notifyAll()
-            })
         })
     }
 
@@ -198,9 +157,6 @@ export class Store {
     private resolveDelta(path: string, resource: any): any {
         if (DayType.resourceUri() === path) {
             return { dayTypes: resource }
-        }
-        if (ActiveYear.resourceUri() === path) {
-            return { activeYears: resource }
         }
         if (IrregularDay.resourceUri() === path) {
             return {
