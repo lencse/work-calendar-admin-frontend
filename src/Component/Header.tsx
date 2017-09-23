@@ -36,6 +36,7 @@ export default class Header extends React.Component<HeaderProps, {}> {
                 <IconButton name='more_vert' id='more' />
                 <Menu target='more' align='right'>
                     <MenuItem disabled={ !this.props.publicationData.isDraft } onClick={ this.publish.bind(this) }>Élesítés</MenuItem>
+                    <MenuItem disabled={ !this.props.publicationData.isDraft } onClick={ this.reset.bind(this) }>Visszaállítás</MenuItem>
                 </Menu>
             </div>
         ) : (
@@ -46,6 +47,10 @@ export default class Header extends React.Component<HeaderProps, {}> {
 
     private publish() {
         store.publish()
+    }
+
+    private reset() {
+        store.reset()
     }
 
 }

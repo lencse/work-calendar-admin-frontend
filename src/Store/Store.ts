@@ -131,6 +131,23 @@ export class Store {
         })
     }
 
+    public reset() {
+        fetch(
+            `${config.apiUrl}/publication/reset`,
+            {
+                method: 'POST'
+            }
+            // { credentials: 'include' }
+        ).then((resp) => {
+            return resp.json().then((data) => {
+                // console.log(data)
+                const resource = deserializer.deserialize(data)
+                this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
+                this.notifyAll()
+            })
+        })
+    }
+
     public markForDelete(day: IrregularDay) {
         this.state.markForDelete(day)
         this.notifyAll()
