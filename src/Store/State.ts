@@ -1,6 +1,7 @@
 import DayType from './DayType'
 import IrregularDay from './IrregularDay'
 import EditedIrregularDay from './EditedIrregularDay'
+import PublicationData from './PublicationData'
 import { assign } from 'lodash'
 
 export function years(state: State): number[] {
@@ -20,6 +21,7 @@ export default class State {
     public dayTypes: DayType[] = []
     public irregularDays: IrregularDay[] = []
     public editingDay: EditedIrregularDay = null
+    public publicationData: PublicationData
 
     public addIrregularDay(irregularDay: IrregularDay) {
         return assign(this, {

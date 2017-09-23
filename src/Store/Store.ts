@@ -5,6 +5,7 @@ import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 import config from '../Config/config'
 import State from './State'
+import PublicationData from './PublicationData'
 
 const irregularDaySerializer = new Serializer('irregularDay', {
     id: 'id',
@@ -33,7 +34,8 @@ export class Store {
     public load() {
         this.chain(this.state, [
             DayType.resourceUri(),
-            IrregularDay.resourceUri()
+            IrregularDay.resourceUri(),
+            PublicationData.resourceUri()
         ]).then((state) => {
             this.state = state
             this.notifyAll()
@@ -112,6 +114,23 @@ export class Store {
         })
     }
 
+    public publish() {
+        fetch(
+            `${config.apiUrl}/publication/publish`,
+            {
+                method: 'POST'
+            }
+            // { credentials: 'include' }
+        ).then((resp) => {
+            return resp.json().then((data) => {
+                // console.log(data)
+                const resource = deserializer.deserialize(data)
+                this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
+                this.notifyAll()
+            })
+        })
+    }
+
     public markForDelete(day: IrregularDay) {
         this.state.markForDelete(day)
         this.notifyAll()
@@ -157,6 +176,9 @@ export class Store {
     private resolveDelta(path: string, resource: any): any {
         if (DayType.resourceUri() === path) {
             return { dayTypes: resource }
+        }
+        if (PublicationData.resourceUri() === path) {
+            return { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null}) }
         }
         if (IrregularDay.resourceUri() === path) {
             return {
