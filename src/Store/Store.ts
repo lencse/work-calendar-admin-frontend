@@ -6,13 +6,7 @@ import { assign } from 'lodash'
 import config from '../Config/config'
 import State from './State'
 import PublicationData from './PublicationData'
-
-const irregularDaySerializer = new Serializer('irregularDay', {
-    id: 'id',
-    attributes: ['date', 'description', 'typeKey'],
-})
-
-const deserializer = new Deserializer({ keyForAttribute: 'camelCase' })
+import Http from '../Http/Http'
 
 export interface StoreSubscriber {
 
@@ -21,8 +15,16 @@ export interface StoreSubscriber {
 
 }
 
+const irregularDaySerializer = new Serializer('irregularDay', {
+    id: 'id',
+    attributes: ['date', 'description', 'typeKey'],
+})
+
+const deserializer = new Deserializer({ keyForAttribute: 'camelCase' })
+
 export class Store {
 
+    private http: Http = new Http()
     private subscribers: StoreSubscriber[] = []
     private state: State = new State()
 
@@ -64,36 +66,22 @@ export class Store {
 
     public saveIrregularDay() {
         if (this.state.editingDay.id) {
-            fetch(
-                `${config.apiUrl}/irregular-days/${this.state.editingDay.id}`,
-                {
-                    method: 'PUT',
-                    body: JSON.stringify(irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay()))
-                }
-                // { credentials: 'include' }
-            ).then((resp) => {
-                return resp.json().then((data) => {
-                    // console.log(data)
-                    const resource = deserializer.deserialize(data)
-                    this.state = this.state.updateIrregularDay(assign(resource, { date: new Date(resource.date) }))
-                    this.notifyAll()
-                })
+            this.http.put(
+                `/irregular-days/${this.state.editingDay.id}`,
+                irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay())
+            ).then((answer) => {
+                const resource = deserializer.deserialize(answer)
+                this.state = this.state.updateIrregularDay(assign(resource, { date: new Date(resource.date) }))
+                this.notifyAll()
             })
         } else {
-            fetch(
-                `${config.apiUrl}/irregular-days/`,
-                {
-                    method: 'POST',
-                    body: JSON.stringify(irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay()))
-                }
-                // { credentials: 'include' }
-            ).then((resp) => {
-                return resp.json().then((data) => {
-                    // console.log(data)
-                    const resource = deserializer.deserialize(data)
-                    this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
-                    this.notifyAll()
-                })
+            this.http.post(
+                `/irregular-days/`,
+                irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay())
+            ).then((answer) => {
+                const resource = deserializer.deserialize(answer)
+                this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
+                this.notifyAll()
             })
 
         }
@@ -102,49 +90,25 @@ export class Store {
     }
 
     public deleteIrregularDay(day: IrregularDay) {
-        fetch(
-            `${config.apiUrl}/irregular-days/${day.id}`,
-            {
-                method: 'DELETE'
-            }
-            // { credentials: 'include' }
-        ).then(() => {
+        this.http.delete(`/irregular-days/${day.id}`).then((answer) => {
             this.state = this.state.deleteIrregularDay(day)
             this.notifyAll()
         })
     }
 
     public publish() {
-        fetch(
-            `${config.apiUrl}/publication/publish`,
-            {
-                method: 'POST'
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                // console.log(data)
-                const resource = deserializer.deserialize(data)
-                this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
-                this.notifyAll()
-            })
+        this.http.post(`/publication/publish`).then((answer) => {
+            const resource = deserializer.deserialize(answer)
+            this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
+            this.notifyAll()
         })
     }
 
     public reset() {
-        fetch(
-            `${config.apiUrl}/publication/reset`,
-            {
-                method: 'POST'
-            }
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                // console.log(data)
-                const resource = deserializer.deserialize(data)
-                this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
-                this.notifyAll()
-            })
+        this.http.post(`/publication/reset`).then((answer) => {
+            const resource = deserializer.deserialize(answer)
+            this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
+            this.notifyAll()
         })
     }
 
@@ -178,15 +142,9 @@ export class Store {
     }
 
     private loadResource(path: string): Promise<State> {
-        return fetch(
-            `${config.apiUrl}${path}`,
-            {}
-            // { credentials: 'include' }
-        ).then((resp) => {
-            return resp.json().then((data) => {
-                const resource = deserializer.deserialize(data)
-                return Promise.resolve(assign(this.state, this.resolveDelta(path, resource)))
-            })
+        return this.http.get(path).then((answer) => {
+            const resource = deserializer.deserialize(answer)
+            return Promise.resolve(assign(this.state, this.resolveDelta(path, resource)))
         })
     }
 
