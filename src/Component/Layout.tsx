@@ -1,10 +1,10 @@
 import * as React from 'react'
 import Header from './Header'
 import Content from './Content'
-import DayType from '../Store/DayType'
-import IrregularDay from '../Store/IrregularDay'
-import EditedIrregularDay from '../Store/EditedIrregularDay'
-import PublicationData from '../Store/PublicationData'
+import DayType from '../Entity/DayType'
+import IrregularDay from '../Entity/IrregularDay'
+import EditedIrregularDay from '../Entity/EditedIrregularDay'
+import PublicationData from '../Entity/PublicationData'
 
 export interface LayoutProps {
 

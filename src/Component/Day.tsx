@@ -1,8 +1,12 @@
 import * as React from 'react'
-import DayType from '../Store/DayType'
-import IrregularDay from '../Store/IrregularDay'
+import DayType from '../Entity/DayType'
+import IrregularDay from '../Entity/IrregularDay'
 import store from '../Store/Store'
 import * as reactClickOutside from 'react-click-outside'
+import DeleteDay from '../Loader/DeleteDay'
+import EditDay from '../Loader/EditDay'
+import CancelDelete from '../Loader/CancelDelete'
+import MarkForDelete from '../Loader/MarkForDelete'
 
 export interface DayProps {
 
@@ -63,7 +67,7 @@ class Day extends React.Component<DayProps, {}> {
     }
 
     public handleClickOutside() {
-        store.cancelDelete(this.props.day)
+        store.load(new CancelDelete(this.props.day))
     }
 
     private actionComponents(): JSX.Element {
@@ -88,15 +92,15 @@ class Day extends React.Component<DayProps, {}> {
     }
 
     private onEdit() {
-        store.editIrregularDay(this.props.day)
+        store.load(new EditDay(this.props.day))
     }
 
     private onMarkForDelete() {
-        store.markForDelete(this.props.day)
+        store.load(new MarkForDelete(this.props.day))
     }
 
     private onDelete() {
-        store.deleteIrregularDay(this.props.day)
+        store.apply(new DeleteDay(this.props.day))
     }
 }
 

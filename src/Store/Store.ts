@@ -1,12 +1,10 @@
-import DayType from './DayType'
-import IrregularDay from './IrregularDay'
-import EditedIrregularDay from './EditedIrregularDay'
-import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
-import config from '../Config/config'
 import State from './State'
-import PublicationData from './PublicationData'
-import Http from '../Http/Http'
+import Bridge from '../Loader/Bridge'
+import StateTransformer from '../Loader/StateTransformer'
+import LoadDays from '../Loader/LoadDays'
+import LoadDayTypes from '../Loader/LoadDayTypes'
+import LoadPublicationData from '../Loader/LoadPublicationData'
 
 export interface StoreSubscriber {
 
@@ -15,16 +13,8 @@ export interface StoreSubscriber {
 
 }
 
-const irregularDaySerializer = new Serializer('irregularDay', {
-    id: 'id',
-    attributes: ['date', 'description', 'typeKey'],
-})
-
-const deserializer = new Deserializer({ keyForAttribute: 'camelCase' })
-
 export class Store {
 
-    private http: Http = new Http()
     private subscribers: StoreSubscriber[] = []
     private state: State = new State()
 
@@ -33,93 +23,27 @@ export class Store {
         subscriber.init(this.state)
     }
 
-    public load() {
+    public loadAll() {
         this.chain(this.state, [
-            DayType.resourceUri(),
-            IrregularDay.resourceUri(),
-            PublicationData.resourceUri()
+            new LoadDays(),
+            new LoadDayTypes(),
+            new LoadPublicationData()
         ]).then((state) => {
             this.state = state
             this.notifyAll()
         })
     }
 
-    public addIrregularDay() {
-        this.state = assign(this.state, { editingDay: new EditedIrregularDay() })
+    public load(transformer: StateTransformer) {
+        this.state = assign(this.state, transformer.delta(this.state))
         this.notifyAll()
     }
 
-    public editIrregularDay(irregularDay: IrregularDay) {
-        this.state = assign(this.state, { editingDay: EditedIrregularDay.fromIrregularDay(irregularDay) })
-        this.notifyAll()
-    }
-
-    public cancelIrregularDay() {
-        this.state = assign(this.state, { editingDay: null })
-        this.notifyAll()
-    }
-
-    public updateIrregularDayWith(param: any) {
-        this.state = assign(this.state, { editingDay: assign(this.state.editingDay, param) })
-        this.notifyAll()
-    }
-
-    public saveIrregularDay() {
-        if (this.state.editingDay.id) {
-            this.http.put(
-                `/irregular-days/${this.state.editingDay.id}`,
-                irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay())
-            ).then((answer) => {
-                const resource = deserializer.deserialize(answer)
-                this.state = this.state.updateIrregularDay(assign(resource, { date: new Date(resource.date) }))
-                this.notifyAll()
-            })
-        } else {
-            this.http.post(
-                `/irregular-days/`,
-                irregularDaySerializer.serialize(this.state.editingDay.toIrregularDay())
-            ).then((answer) => {
-                const resource = deserializer.deserialize(answer)
-                this.state = this.state.addIrregularDay(assign(resource, { date: new Date(resource.date) }))
-                this.notifyAll()
-            })
-
-        }
-        this.state = assign(this.state, { editingDay: null })
-        this.notifyAll()
-    }
-
-    public deleteIrregularDay(day: IrregularDay) {
-        this.http.delete(`/irregular-days/${day.id}`).then((answer) => {
-            this.state = this.state.deleteIrregularDay(day)
+    public apply(bridge: Bridge) {
+        bridge.send().then((answer) => {
+            this.state = assign(this.state, bridge.delta(this.state, answer))
             this.notifyAll()
         })
-    }
-
-    public publish() {
-        this.http.post(`/publication/publish`).then((answer) => {
-            const resource = deserializer.deserialize(answer)
-            this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
-            this.notifyAll()
-        })
-    }
-
-    public reset() {
-        this.http.post(`/publication/reset`).then((answer) => {
-            const resource = deserializer.deserialize(answer)
-            this.state = assign(this.state, { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null})})
-            this.notifyAll()
-        })
-    }
-
-    public markForDelete(day: IrregularDay) {
-        this.state.markForDelete(day)
-        this.notifyAll()
-    }
-
-    public cancelDelete(day: IrregularDay) {
-        this.state.cancelDelete(day)
-        this.notifyAll()
     }
 
     private notifyAll() {
@@ -132,36 +56,15 @@ export class Store {
         subscriber.update(this.state)
     }
 
-    private chain(state: State, resources: string[]): Promise<State> {
-        if (0 === resources.length) {
+    private chain(state: State, bridges: Bridge[]): Promise<State> {
+        const x = 1
+        if (0 === bridges.length) {
             return Promise.resolve(state)
         }
-        return this.loadResource(resources.pop()).then((newState) => {
-            return this.chain(newState, resources)
+        const bridge = bridges.pop()
+        return bridge.send().then((answer) => {
+            return this.chain(assign(state, bridge.delta(state, answer)), bridges)
         })
-    }
-
-    private loadResource(path: string): Promise<State> {
-        return this.http.get(path).then((answer) => {
-            const resource = deserializer.deserialize(answer)
-            return Promise.resolve(assign(this.state, this.resolveDelta(path, resource)))
-        })
-    }
-
-    private resolveDelta(path: string, resource: any): any {
-        if (DayType.resourceUri() === path) {
-            return { dayTypes: resource }
-        }
-        if (PublicationData.resourceUri() === path) {
-            return { publicationData: assign(resource, { publicationDate: resource.publicationDate ? new Date(resource.publicationDate) : null}) }
-        }
-        if (IrregularDay.resourceUri() === path) {
-            return {
-                irregularDays: resource.map(
-                    (day: IrregularDay) => assign(day, { date: new Date(day.date) })
-                )
-            }
-        }
     }
 
 }

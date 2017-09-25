@@ -1,11 +1,15 @@
 import * as React from 'react'
-import DayType from '../Store/DayType'
+import DayType from '../Entity/DayType'
 import IrregularDays from './IrregularDays'
 import store from '../Store/Store'
-import IrregularDay from '../Store/IrregularDay'
+import IrregularDay from '../Entity/IrregularDay'
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Textfield } from 'react-mdl'
 import { SelectField, Option } from 'react-mdl-selectfield'
-import EditedIrregularDay from '../Store/EditedIrregularDay'
+import EditedIrregularDay from '../Entity/EditedIrregularDay'
+import NewDay from '../Loader/NewDay'
+import CancelEdit from '../Loader/CancelEdit'
+import UpdateEditingDay from '../Loader/UpdateEditingDay'
+import SaveDay from '../Loader/SaveDay'
 
 interface AddIrregularDayProps {
 
@@ -93,27 +97,27 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
     }
 
     private openDialog() {
-        store.addIrregularDay()
+        store.load(new NewDay())
     }
 
     private closeDialog() {
-        store.cancelIrregularDay()
+        store.load(new CancelEdit())
     }
 
     private save() {
-        store.saveIrregularDay()
+        store.apply(new SaveDay(this.props.editingDay))
     }
 
     private onChangeDate(event: React.FormEvent<HTMLInputElement>) {
-        store.updateIrregularDayWith({ dateString: event.currentTarget.value })
+        store.load(new UpdateEditingDay({ dateString: event.currentTarget.value }))
     }
 
     private onChangeType(typeKey: string) {
-        store.updateIrregularDayWith({ typeKey })
+        store.load(new UpdateEditingDay({ typeKey }))
     }
 
     private onChangeDescription(event: React.FormEvent<HTMLInputElement>) {
-        store.updateIrregularDayWith({ description: event.currentTarget.value })
+        store.load(new UpdateEditingDay({ description: event.currentTarget.value }))
     }
 
 }

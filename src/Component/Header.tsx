@@ -1,7 +1,9 @@
 import * as React from 'react'
-import PublicationData from '../Store/PublicationData'
+import PublicationData from '../Entity/PublicationData'
 import { Menu, MenuItem, IconButton } from 'react-mdl'
 import store from '../Store/Store'
+import Publish from '../Loader/Publish'
+import Reset from '../Loader/Reset'
 
 export interface HeaderProps {
 
@@ -46,11 +48,11 @@ export default class Header extends React.Component<HeaderProps, {}> {
     }
 
     private publish() {
-        store.publish()
+        store.apply(new Publish())
     }
 
     private reset() {
-        store.reset()
+        store.apply(new Reset())
     }
 
 }

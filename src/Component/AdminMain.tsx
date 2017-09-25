@@ -31,7 +31,7 @@ export default class AdminMain extends React.Component<{}, State> implements Sto
     }
 
     public componentDidMount() {
-        store.load()
+        store.loadAll()
     }
 
 }

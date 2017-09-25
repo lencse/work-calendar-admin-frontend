@@ -1,9 +1,9 @@
 import * as React from 'react'
-import DayType from '../Store/DayType'
+import DayType from '../Entity/DayType'
 import IrregularDays from './IrregularDays'
 import store from '../Store/Store'
 import { Checkbox, Card, CardTitle, CardText, CardMenu } from 'react-mdl'
-import IrregularDay from '../Store/IrregularDay'
+import IrregularDay from '../Entity/IrregularDay'
 
 export interface YearContainerProps {
 

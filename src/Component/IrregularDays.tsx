@@ -1,6 +1,6 @@
 import * as React from 'react'
-import DayType from '../Store/DayType'
-import IrregularDay from '../Store/IrregularDay'
+import DayType from '../Entity/DayType'
+import IrregularDay from '../Entity/IrregularDay'
 import Day from './Day'
 
 export interface IrregularDaysProps {

@@ -1,10 +1,10 @@
 import * as React from 'react'
-import DayType from '../Store/DayType'
+import DayType from '../Entity/DayType'
 import YearContainer from './YearContainer'
 import IrregularDays from './IrregularDays'
 import AddIrregularDay from './AddIrregularDay'
-import IrregularDay from '../Store/IrregularDay'
-import EditedIrregularDay from '../Store/EditedIrregularDay'
+import IrregularDay from '../Entity/IrregularDay'
+import EditedIrregularDay from '../Entity/EditedIrregularDay'
 
 export interface ContentProps {
 

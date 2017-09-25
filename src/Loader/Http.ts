@@ -1,8 +1,7 @@
 import config from '../Config/config'
-import { Deserializer, Serializer } from 'ts-jsonapi'
 import { assign } from 'lodash'
 
-export default class Http {
+export class Http {
 
     public get(path: string): Promise<any> {
         return this.fetch(path)
@@ -30,7 +29,10 @@ export default class Http {
     }
 
     private fetch(path: string, params?: any) {
-        return fetch(`${config.apiUrl}${path}`, params).then((resp) => {
+        return fetch(
+            `${config.apiUrl}${path}`,
+            params
+        ).then((resp) => {
             if (resp.status === 204) {
                 return Promise.resolve(null)
             }
@@ -41,3 +43,7 @@ export default class Http {
     }
 
 }
+
+const http = new Http()
+
+export default http
