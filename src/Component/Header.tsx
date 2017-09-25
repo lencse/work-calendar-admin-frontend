@@ -35,10 +35,10 @@ export default class Header extends React.Component<HeaderProps, {}> {
                     Utolsó élesítés: { this.props.publicationData.publicationDate ? dateToStr(this.props.publicationData.publicationDate) : 'soha' }
                 </div>
                 <div className='mdl-layout-spacer'></div>
-                <IconButton name='more_vert' id='more' />
+                <IconButton name='more_vert' id='more' disabled={ !this.props.publicationData.isDraft }/>
                 <Menu target='more' align='right'>
-                    <MenuItem disabled={ !this.props.publicationData.isDraft } onClick={ this.publish.bind(this) }>Élesítés</MenuItem>
-                    <MenuItem disabled={ !this.props.publicationData.isDraft } onClick={ this.reset.bind(this) }>Visszaállítás</MenuItem>
+                    <MenuItem onClick={ this.publish.bind(this) }>Élesítés</MenuItem>
+                    <MenuItem onClick={ this.reset.bind(this) }>Visszaállítás</MenuItem>
                 </Menu>
             </div>
         ) : (

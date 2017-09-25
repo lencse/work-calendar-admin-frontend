@@ -22,5 +22,6 @@ export default class State {
     public irregularDays: IrregularDay[] = []
     public editingDay: EditedIrregularDay = null
     public publicationData: PublicationData
+    public isLoading: boolean = false
 
 }

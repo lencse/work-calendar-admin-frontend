@@ -5,6 +5,8 @@ import StateTransformer from '../Loader/StateTransformer'
 import LoadDays from '../Loader/LoadDays'
 import LoadDayTypes from '../Loader/LoadDayTypes'
 import LoadPublicationData from '../Loader/LoadPublicationData'
+import Loading from '../Loader/Loading'
+import EndLoading from '../Loader/EndLoading'
 
 export interface StoreSubscriber {
 
@@ -24,12 +26,20 @@ export class Store {
     }
 
     public loadAll() {
-        this.chain(this.state, [
+        this.load(new Loading())
+        Promise.all([
             new LoadDays(),
             new LoadDayTypes(),
-            new LoadPublicationData()
-        ]).then((state) => {
-            this.applyState(state)
+            new LoadPublicationData(),
+        ].map(
+            (bridge) => this.parallel(bridge))
+        ).then((results) => {
+            const apply = {}
+            results.forEach((result) => {
+                assign(apply, result)
+            })
+            this.applyState(assign(this.state, apply))
+            this.load(new EndLoading())
         })
     }
 
@@ -38,10 +48,14 @@ export class Store {
     }
 
     public apply(bridge: Bridge) {
+        this.load(new Loading())
+        console.log('store', this.state.isLoading)
         bridge.send().then((answer) => {
             this.applyState(assign(this.state, bridge.delta(this.state, answer)))
             if (bridge.next()) {
                 this.apply(bridge.next())
+            } else {
+                this.load(new EndLoading())
             }
         })
     }
@@ -61,14 +75,9 @@ export class Store {
         subscriber.update(this.state)
     }
 
-    private chain(state: State, bridges: Bridge[]): Promise<State> {
-        const x = 1
-        if (0 === bridges.length) {
-            return Promise.resolve(state)
-        }
-        const bridge = bridges.pop()
+    private parallel(bridge: Bridge): Promise<any> {
         return bridge.send().then((answer) => {
-            return this.chain(assign(state, bridge.delta(state, answer)), bridges)
+            return bridge.delta(null, answer)
         })
     }
 

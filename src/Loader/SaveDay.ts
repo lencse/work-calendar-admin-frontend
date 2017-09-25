@@ -25,7 +25,7 @@ export default class SaveDay extends UpdateDays {
     public send(): Promise<any> {
         return this.day.id
             ? http.put(`${Day.resourceUri()}${this.day.id}`, irregularDaySerializer.serialize(this.day.toIrregularDay()))
-            : http.put(Day.resourceUri(), irregularDaySerializer.serialize(this.day.toIrregularDay()))
+            : http.post(Day.resourceUri(), irregularDaySerializer.serialize(this.day.toIrregularDay()))
     }
 
     public delta(state: State, answer: any): any {

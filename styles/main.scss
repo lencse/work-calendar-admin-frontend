@@ -84,3 +84,11 @@ dialog.mdl-dialog {
 #dialog-irregular-day {
     width: fit-content !important;
 }
+
+#loading-bar[data-mdl-visible="true"] {
+    visibility: visible;
+}
+
+#loading-bar[data-mdl-visible="false"] {
+    visibility: hidden;
+}
