@@ -3,12 +3,14 @@ import http from './Http'
 import State from '../Store/State'
 import Day from '../Entity/IrregularDay'
 import { assign } from 'lodash'
+import UpdateDays from './UpdateDays'
 
-export default class DeleteDay implements Bridge {
+export default class DeleteDay extends UpdateDays {
 
     private day: Day
 
     constructor(day: Day) {
+        super()
         this.day = day
     }
 

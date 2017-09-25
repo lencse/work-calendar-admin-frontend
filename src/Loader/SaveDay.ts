@@ -4,19 +4,21 @@ import State from '../Store/State'
 import Day from '../Entity/IrregularDay'
 import { assign } from 'lodash'
 import { Serializer } from 'ts-jsonapi'
-import EditedIrregularDay from '../Entity/EditedIrregularDay';
-import { deserializer } from './JsonApi';
+import EditedIrregularDay from '../Entity/EditedIrregularDay'
+import { deserializer } from './JsonApi'
+import UpdateDays from './UpdateDays'
 
 const irregularDaySerializer = new Serializer('irregularDay', {
     id: 'id',
     attributes: ['date', 'description', 'typeKey'],
 })
 
-export default class SaveDay implements Bridge {
+export default class SaveDay extends UpdateDays {
 
     private day: EditedIrregularDay
 
     constructor(day: EditedIrregularDay) {
+        super()
         this.day = day
     }
 

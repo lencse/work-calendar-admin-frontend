@@ -29,21 +29,26 @@ export class Store {
             new LoadDayTypes(),
             new LoadPublicationData()
         ]).then((state) => {
-            this.state = state
-            this.notifyAll()
+            this.applyState(state)
         })
     }
 
     public load(transformer: StateTransformer) {
-        this.state = assign(this.state, transformer.delta(this.state))
-        this.notifyAll()
+        this.applyState(assign(this.state, transformer.delta(this.state)))
     }
 
     public apply(bridge: Bridge) {
         bridge.send().then((answer) => {
-            this.state = assign(this.state, bridge.delta(this.state, answer))
-            this.notifyAll()
+            this.applyState(assign(this.state, bridge.delta(this.state, answer)))
+            if (bridge.next()) {
+                this.apply(bridge.next())
+            }
         })
+    }
+
+    private applyState(newState: State) {
+        this.state = newState
+        this.notifyAll()
     }
 
     private notifyAll() {

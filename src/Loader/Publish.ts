@@ -7,8 +7,9 @@ import DayType from '../Entity/DayType'
 import { assign } from 'lodash'
 import { deserializer } from './JsonApi'
 import PublicationData from '../Entity/PublicationData'
+import Publication from './Publication'
 
-export default class Publish implements Bridge {
+export default class Publish extends Publication {
 
     public send(): Promise<any> {
         return http.post(`/publication/publish`)

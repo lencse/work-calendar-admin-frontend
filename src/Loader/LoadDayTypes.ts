@@ -17,4 +17,8 @@ export default class LoadDayTypes implements Bridge {
         return { dayTypes: deserializer.deserialize(answer).map((raw) => assign(new DayType(), raw, {})) }
     }
 
+    public next(): Bridge {
+        return null
+    }
+
 }

@@ -25,4 +25,8 @@ export default class LoadPublicationData implements Bridge {
         }
     }
 
+    public next(): Bridge {
+        return null
+    }
+
 }

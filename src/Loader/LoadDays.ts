@@ -26,4 +26,8 @@ export default class LoadDays implements Bridge {
         }
     }
 
+    public next(): Bridge {
+        return null
+    }
+
 }
