@@ -25,13 +25,13 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
 
         return (
             <div>
-                <button
+                <li
                     className='mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored'
                     id='button-add-irregular-day'
                     onClick={ this.openDialog.bind(this) }
                 >
                     <i className='material-icons'>add</i>
-                </button>
+                </li>
                 <Dialog
                     open={ this.props.editingDay ? true : false }
                     style={ { zIndex: 1000 }}
@@ -41,12 +41,12 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
                     <DialogTitle>Új nap</DialogTitle>
                     { this.dialogContent() }
                     <DialogActions>
-                        <button className='mdl-button color-text--teal mdl-js-button mdl-js-ripple-effect' onClick={ this.save.bind(this) }>
+                        <li className='mdl-button color-text--teal mdl-js-button mdl-js-ripple-effect' onClick={ this.save.bind(this) }>
                             Mentés
-                        </button>
-                        <button className='mdl-button mdl-js-button mdl-js-ripple-effect cancel-button' onClick={ this.closeDialog.bind(this) }>
+                        </li>
+                        <li className='mdl-button mdl-js-button mdl-js-ripple-effect cancel-button' onClick={ this.closeDialog.bind(this) }>
                             Mégsem
-                        </button>
+                        </li>
                     </DialogActions>
                 </Dialog>
             </div>
@@ -76,11 +76,6 @@ export default class AddIrregularDay extends React.Component<AddIrregularDayProp
                 >
                     { this.dayTypes() }
                 </SelectField>
-
-                {/* <div className='mdl-textfield mdl-js-textfield'>
-                    <textarea className='mdl-textfield__input' id='textfield-day-description' value={ this.props.editingDay.description } />
-                    <label className='mdl-textfield__label' htmlFor='textfield-day-description'>Leírás</label>
-                </div> */}
 
                 <Textfield
                     onChange={ this.onChangeDescription.bind(this) }

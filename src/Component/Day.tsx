@@ -74,19 +74,19 @@ class Day extends React.Component<DayProps, {}> {
         return this.props.day.toDelete
             ? (
                 <span>
-                    <button className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored-red' onClick={ this.onDelete.bind(this) }>
+                    <li className='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored-red' onClick={ this.onDelete.bind(this) }>
                         <i className='material-icons'>delete</i>
                         Rendben
-                    </button>
+                    </li>
                 </span>
         ) : (
                 <span>
-                <button className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onEdit.bind(this) }>
+                <li className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onEdit.bind(this) }>
                     <i className='material-icons'>edit</i>
-                </button>
-                    <button className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onMarkForDelete.bind(this) }>
+                </li>
+                    <li className='mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect' onClick={ this.onMarkForDelete.bind(this) }>
                         <i className='material-icons'>delete</i>
-                    </button>
+                    </li>
                 </span>
             )
     }

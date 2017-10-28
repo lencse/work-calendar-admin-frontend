@@ -29,12 +29,18 @@ export class Http {
     }
 
     private fetch(path: string, params?: any) {
+        params = params || {}
+        params = assign(params, { credentials: 'include' })
+        console.log(params)
         return fetch(
-            `${config.apiUrl}${path}`,
+            `${config.apiUrl}/api${path}`,
             params
         ).then((resp) => {
             if (resp.status === 204) {
                 return Promise.resolve(null)
+            }
+            if (resp.status === 403) {
+                window.location.href = `${config.apiUrl}/auth/auth`
             }
             return resp.json().then((answer) => {
                 return Promise.resolve(answer)

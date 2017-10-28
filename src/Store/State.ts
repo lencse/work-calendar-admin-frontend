@@ -2,6 +2,7 @@ import DayType from '../Entity/DayType'
 import IrregularDay from '../Entity/IrregularDay'
 import EditedIrregularDay from '../Entity/EditedIrregularDay'
 import PublicationData from '../Entity/PublicationData'
+import User from '../Entity/User'
 import { assign } from 'lodash'
 
 export function years(state: State): number[] {
@@ -23,5 +24,6 @@ export default class State {
     public editingDay: EditedIrregularDay = null
     public publicationData: PublicationData
     public isLoading: boolean = false
+    public user: User = null
 
 }

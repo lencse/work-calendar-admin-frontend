@@ -5,6 +5,7 @@ import DayType from '../Entity/DayType'
 import IrregularDay from '../Entity/IrregularDay'
 import EditedIrregularDay from '../Entity/EditedIrregularDay'
 import PublicationData from '../Entity/PublicationData'
+import User from '../Entity/User'
 
 export interface LayoutProps {
 
@@ -14,16 +15,16 @@ export interface LayoutProps {
     editingDay: EditedIrregularDay
     publicationData: PublicationData
     isLoading: boolean
+    user: User
 
 }
 
 export default class Layout extends React.Component<LayoutProps, {}> {
 
     public render() {
-        console.log('component', this.props.isLoading)
         return (
             <div className='mdl-layout mdl-js-layout mdl-layout--fixed-header is-small-screen'>
-                <Header publicationData={ this.props.publicationData} />
+                <Header publicationData={ this.props.publicationData} user={ this.props.user } />
                 <main className='mdl-layout__content'>
                     <Content
                         dayTypes={ this.props.dayTypes }
@@ -36,11 +37,5 @@ export default class Layout extends React.Component<LayoutProps, {}> {
             </div>
         )
     }
-
-    // private progressBar(): JSX.Element {
-    //     return this.props.isLoading ? (
-
-    //     ) : null
-    // }
 
 }

@@ -5,8 +5,10 @@ import StateTransformer from '../Loader/StateTransformer'
 import LoadDays from '../Loader/LoadDays'
 import LoadDayTypes from '../Loader/LoadDayTypes'
 import LoadPublicationData from '../Loader/LoadPublicationData'
+import LoadUser from '../Loader/LoadUser'
 import Loading from '../Loader/Loading'
 import EndLoading from '../Loader/EndLoading'
+import config from '../Config/config'
 
 export interface StoreSubscriber {
 
@@ -27,20 +29,23 @@ export class Store {
 
     public loadAll() {
         this.load(new Loading())
-        Promise.all([
-            new LoadDays(),
-            new LoadDayTypes(),
-            new LoadPublicationData(),
-        ].map(
-            (bridge) => this.parallel(bridge))
-        ).then((results) => {
-            const apply = {}
-            results.forEach((result) => {
-                assign(apply, result)
-            })
-            this.applyState(assign(this.state, apply))
-            this.load(new EndLoading())
-        })
+        Promise.all(
+            [
+                new LoadDays(),
+                new LoadDayTypes(),
+                new LoadPublicationData(),
+                new LoadUser()
+            ].map(
+                (bridge) => this.parallel(bridge))
+            ).then((results) => {
+                const apply = {}
+                results.forEach((result) => {
+                    assign(apply, result)
+                })
+                this.applyState(assign(this.state, apply))
+                this.load(new EndLoading())
+            }
+        )
     }
 
     public load(transformer: StateTransformer) {
@@ -49,7 +54,6 @@ export class Store {
 
     public apply(bridge: Bridge) {
         this.load(new Loading())
-        console.log('store', this.state.isLoading)
         bridge.send().then((answer) => {
             this.applyState(assign(this.state, bridge.delta(this.state, answer)))
             if (bridge.next()) {
@@ -58,6 +62,10 @@ export class Store {
                 this.load(new EndLoading())
             }
         })
+    }
+
+    public logout() {
+        window.location.href = `${config.apiUrl}/auth/logout`
     }
 
     private applyState(newState: State) {

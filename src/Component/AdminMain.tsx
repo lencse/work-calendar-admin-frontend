@@ -19,6 +19,7 @@ export default class AdminMain extends React.Component<{}, State> implements Sto
                 editingDay={ this.state.editingDay }
                 publicationData={ this.state.publicationData }
                 isLoading={ this.state.isLoading }
+                user={ this.state.user }
             />
         )
     }

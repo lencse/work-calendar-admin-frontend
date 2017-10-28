@@ -1,34 +1,15 @@
 @import '../node_modules/lencse-getmdl-dashboard/src/application';
 
-// $card-background-color: $background-color;
-// $card-text-color: unquote("rgba(#{$color-white}, 0.8)");
-// $card-supporting-text-text-color: unquote("rgba(#{$color-white}, 0.8)");
-// $card-subtitle-color: unquote("rgba(#{$color-white}, 0.5)");
-// $card-border-color: unquote("rgba(#{$color-white},0.05)");
-
-// $card-title-background-color: unquote("rgba(#{$color-black}, 0.3)");
-// $card-actions-background-color: unquote("rgba(#{$color-white},0.05)");
-// $card-text-color: unquote("rgba(#{$color-white}, 0.8)");
-// $card-link-color: unquote("rgb(#{$color-primary})");
-// $card-href-color: unquote("rgb(#{$color-primary})");
-
-// $card-title-img-color: unquote("rgb(#{$color-white})");
-// $card-deg-color: unquote("rgba(#{$color-white}, 0.9)");
-
-#button-add-year {
-    position: fixed;
-    left: 1em;
-    bottom: 1em;
-    z-index: 500;
-    background: $color-teal;
-}
-
 #button-add-irregular-day {
     position: fixed;
     right: 1em;
     bottom: 1em;
     z-index: 500;
     background: $color-teal;
+}
+
+dialog.mdl-dialog .cancel-button {
+
 }
 
 dialog.mdl-dialog {
@@ -91,4 +72,10 @@ dialog.mdl-dialog {
 
 #loading-bar[data-mdl-visible="false"] {
     visibility: hidden;
+}
+
+img.avatar {
+    border-radius: 16px;
+    width: 32px;
+    height: 32px;
 }
