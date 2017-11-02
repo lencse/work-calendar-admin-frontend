@@ -1,0 +1,1750 @@
+[
+  {
+    "timeStamp": 1509658118474,
+    "time": 69204,
+    "hash": "00fb591de27fd29a31a4",
+    "errors": [],
+    "size": 2862476,
+    "assets": [
+      {
+        "name": "images/imgo.png",
+        "chunks": [],
+        "size": 1333
+      },
+      {
+        "name": "js/main.00fb591de27fd29a31a4.js",
+        "chunks": [
+          0
+        ],
+        "size": 923708,
+        "miniSize": 931880,
+        "minified": false
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2369
+      },
+      {
+        "name": "images/active_marker.png",
+        "chunks": [],
+        "size": 1060
+      },
+      {
+        "name": "images/buffer.svg",
+        "chunks": [],
+        "size": 425
+      },
+      {
+        "name": "images/card.jpg",
+        "chunks": [],
+        "size": 1799
+      },
+      {
+        "name": "images/cloudy_and_snow.svg",
+        "chunks": [],
+        "size": 1941
+      },
+      {
+        "name": "images/cotoneaster.jpg",
+        "chunks": [],
+        "size": 87201
+      },
+      {
+        "name": "images/Dark_background_1920x1080.png",
+        "chunks": [],
+        "size": 54515
+      },
+      {
+        "name": "images/DB_16х16.png",
+        "chunks": [],
+        "size": 20532
+      },
+      {
+        "name": "images/Icon_header.png",
+        "chunks": [],
+        "size": 35130
+      },
+      {
+        "name": "images/Icon.png",
+        "chunks": [],
+        "size": 36988
+      },
+      {
+        "name": "css/main.fe56147acdc641773f72cdaa2234ea06.css",
+        "chunks": [
+          0
+        ],
+        "size": 185724
+      },
+      {
+        "name": "images/istanbul.jpg",
+        "chunks": [],
+        "size": 191321
+      },
+      {
+        "name": "images/map_target_images_sprite.png",
+        "chunks": [],
+        "size": 41813
+      },
+      {
+        "name": "images/marker.png",
+        "chunks": [],
+        "size": 1035
+      },
+      {
+        "name": "images/robot.png",
+        "chunks": [],
+        "size": 139132
+      },
+      {
+        "name": "images/sao_paulo.jpg",
+        "chunks": [],
+        "size": 258030
+      },
+      {
+        "name": "images/skype.svg",
+        "chunks": [],
+        "size": 1657
+      },
+      {
+        "name": "images/tick_dark.svg",
+        "chunks": [],
+        "size": 648
+      },
+      {
+        "name": "images/tick-mask.svg",
+        "chunks": [],
+        "size": 1249
+      },
+      {
+        "name": "images/tick.svg",
+        "chunks": [],
+        "size": 648
+      },
+      {
+        "name": "images/tokyo.jpg",
+        "chunks": [],
+        "size": 662059
+      },
+      {
+        "name": "images/watch_white.svg",
+        "chunks": [],
+        "size": 364
+      },
+      {
+        "name": "images/weather_bck.png",
+        "chunks": [],
+        "size": 211795
+      }
+    ],
+    "chunks": [
+      {
+        "size": 2108183,
+        "files": [
+          "js/main.00fb591de27fd29a31a4.js",
+          "css/main.fe56147acdc641773f72cdaa2234ea06.css"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5418,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/react/react.js",
+            "size": 56,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/prop-types/index.js",
+            "size": 1078,
+            "id": 2
+          },
+          {
+            "name": "./node_modules/classnames/index.js",
+            "size": 1102,
+            "id": 3
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1632,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 2016,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/react-dom/lib/reactProdInvariant.js",
+            "size": 1236,
+            "id": 6
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMComponentTree.js",
+            "size": 6270,
+            "id": 8
+          },
+          {
+            "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+            "size": 1061,
+            "id": 9
+          },
+          {
+            "name": "./node_modules/lodash/lodash.js",
+            "size": 539588,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/react/lib/ReactComponentTreeHook.js",
+            "size": 11795,
+            "id": 11
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/mdlUpgrade.js",
+            "size": 1646,
+            "id": 12
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 1085,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/react-dom/index.js",
+            "size": 59,
+            "id": 14
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactInstrumentation.js",
+            "size": 601,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/react/lib/ReactCurrentOwner.js",
+            "size": 621,
+            "id": 16
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactUpdates.js",
+            "size": 9534,
+            "id": 17
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticEvent.js",
+            "size": 9181,
+            "id": 18
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DOMProperty.js",
+            "size": 8239,
+            "id": 19
+          },
+          {
+            "name": "./node_modules/react/lib/ReactElement.js",
+            "size": 11233,
+            "id": 20
+          },
+          {
+            "name": "./node_modules/react-dom/lib/PooledClass.js",
+            "size": 3356,
+            "id": 21
+          },
+          {
+            "name": "./build/Loader/Http.js",
+            "size": 2592,
+            "id": 22
+          },
+          {
+            "name": "./node_modules/react/lib/React.js",
+            "size": 5078,
+            "id": 23
+          },
+          {
+            "name": "./node_modules/react/lib/reactProdInvariant.js",
+            "size": 1236,
+            "id": 24
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactReconciler.js",
+            "size": 6210,
+            "id": 25
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DOMLazyTree.js",
+            "size": 3715,
+            "id": 26
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/index.js",
+            "size": 9741,
+            "id": 27
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/basicClassCreator.js",
+            "size": 1602,
+            "id": 28
+          },
+          {
+            "name": "./build/Loader/JsonApi.js",
+            "size": 233,
+            "id": 29
+          },
+          {
+            "name": "./node_modules/react-dom/lib/EventPropagators.js",
+            "size": 5094,
+            "id": 30
+          },
+          {
+            "name": "./node_modules/react-dom/lib/EventPluginHub.js",
+            "size": 9107,
+            "id": 31
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticUIEvent.js",
+            "size": 1571,
+            "id": 32
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactInstanceMap.js",
+            "size": 1219,
+            "id": 33
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Icon/index.js",
+            "size": 1484,
+            "id": 34
+          },
+          {
+            "name": "./node_modules/react/lib/canDefineProperty.js",
+            "size": 661,
+            "id": 35
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 458,
+            "id": 36
+          },
+          {
+            "name": "./node_modules/react-dom/lib/EventPluginRegistry.js",
+            "size": 9746,
+            "id": 37
+          },
+          {
+            "name": "./node_modules/react-dom/lib/Transaction.js",
+            "size": 9553,
+            "id": 38
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticMouseEvent.js",
+            "size": 2141,
+            "id": 39
+          },
+          {
+            "name": "./node_modules/react-dom/lib/setInnerHTML.js",
+            "size": 3860,
+            "id": 40
+          },
+          {
+            "name": "./node_modules/react-dom/lib/escapeTextContentForBrowser.js",
+            "size": 3431,
+            "id": 41
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactBrowserEventEmitter.js",
+            "size": 12553,
+            "id": 42
+          },
+          {
+            "name": "./node_modules/clamp/index.js",
+            "size": 187,
+            "id": 43
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/shadows.js",
+            "size": 201,
+            "id": 44
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/DataTable/TableHeader.js",
+            "size": 2670,
+            "id": 45
+          },
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 509,
+            "id": 46
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/cloneChildren.js",
+            "size": 556,
+            "id": 47
+          },
+          {
+            "name": "./build/Store/Store.js",
+            "size": 3821,
+            "id": 48
+          },
+          {
+            "name": "./node_modules/react/lib/lowPriorityWarning.js",
+            "size": 2162,
+            "id": 49
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 436,
+            "id": 50
+          },
+          {
+            "name": "./node_modules/react-dom/lib/EventPluginUtils.js",
+            "size": 7945,
+            "id": 51
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactErrorUtils.js",
+            "size": 2188,
+            "id": 52
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getEventTarget.js",
+            "size": 1010,
+            "id": 53
+          },
+          {
+            "name": "./node_modules/react-dom/lib/isEventSupported.js",
+            "size": 1937,
+            "id": 54
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getEventModifierState.js",
+            "size": 1225,
+            "id": 55
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DOMChildrenOperations.js",
+            "size": 7717,
+            "id": 56
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DOMNamespaces.js",
+            "size": 505,
+            "id": 57
+          },
+          {
+            "name": "./node_modules/react-dom/lib/createMicrosoftUnsafeLocalFunction.js",
+            "size": 810,
+            "id": 58
+          },
+          {
+            "name": "./node_modules/react-dom/lib/LinkedValueUtils.js",
+            "size": 5239,
+            "id": 59
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactComponentEnvironment.js",
+            "size": 1302,
+            "id": 60
+          },
+          {
+            "name": "./node_modules/fbjs/lib/shallowEqual.js",
+            "size": 1742,
+            "id": 61
+          },
+          {
+            "name": "./node_modules/react-dom/lib/shouldUpdateReactComponent.js",
+            "size": 1403,
+            "id": 62
+          },
+          {
+            "name": "./node_modules/react-dom/lib/KeyEscapeUtils.js",
+            "size": 1294,
+            "id": 63
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactUpdateQueue.js",
+            "size": 9354,
+            "id": 64
+          },
+          {
+            "name": "./node_modules/react-dom/lib/validateDOMNesting.js",
+            "size": 13654,
+            "id": 65
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getEventCharCode.js",
+            "size": 1505,
+            "id": 66
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/MDLComponent.js",
+            "size": 2984,
+            "id": 67
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Button.js",
+            "size": 4641,
+            "id": 68
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Spacer.js",
+            "size": 396,
+            "id": 69
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Tabs/TabBar.js",
+            "size": 4684,
+            "id": 70
+          },
+          {
+            "name": "./build/Entity/IrregularDay.js",
+            "size": 1217,
+            "id": 71
+          },
+          {
+            "name": "./build/Entity/PublicationData.js",
+            "size": 1207,
+            "id": 72
+          },
+          {
+            "name": "./node_modules/react/lib/ReactBaseClasses.js",
+            "size": 5436,
+            "id": 73
+          },
+          {
+            "name": "./node_modules/react/lib/ReactNoopUpdateQueue.js",
+            "size": 3362,
+            "id": 74
+          },
+          {
+            "name": "./node_modules/react/lib/ReactElementSymbol.js",
+            "size": 622,
+            "id": 75
+          },
+          {
+            "name": "./node_modules/react/lib/getIteratorFn.js",
+            "size": 1119,
+            "id": 76
+          },
+          {
+            "name": "./node_modules/react/lib/ReactElementValidator.js",
+            "size": 9198,
+            "id": 77
+          },
+          {
+            "name": "./node_modules/prop-types/factory.js",
+            "size": 890,
+            "id": 78
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+            "size": 18600,
+            "id": 79
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMComponentFlags.js",
+            "size": 429,
+            "id": 80
+          },
+          {
+            "name": "./node_modules/react-dom/lib/accumulateInto.js",
+            "size": 1694,
+            "id": 81
+          },
+          {
+            "name": "./node_modules/react-dom/lib/forEachAccumulated.js",
+            "size": 855,
+            "id": 82
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getTextContentAccessor.js",
+            "size": 955,
+            "id": 83
+          },
+          {
+            "name": "./node_modules/react-dom/lib/CallbackQueue.js",
+            "size": 3162,
+            "id": 84
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactFeatureFlags.js",
+            "size": 628,
+            "id": 85
+          },
+          {
+            "name": "./node_modules/react-dom/lib/inputValueTracking.js",
+            "size": 3096,
+            "id": 86
+          },
+          {
+            "name": "./node_modules/react-dom/lib/isTextInputElement.js",
+            "size": 1017,
+            "id": 87
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ViewportMetrics.js",
+            "size": 604,
+            "id": 88
+          },
+          {
+            "name": "./node_modules/react-dom/lib/setTextContent.js",
+            "size": 1453,
+            "id": 89
+          },
+          {
+            "name": "./node_modules/fbjs/lib/focusNode.js",
+            "size": 704,
+            "id": 90
+          },
+          {
+            "name": "./node_modules/react-dom/lib/CSSProperty.js",
+            "size": 3798,
+            "id": 91
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DOMPropertyOperations.js",
+            "size": 7607,
+            "id": 92
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactPropTypesSecret.js",
+            "size": 442,
+            "id": 93
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMSelect.js",
+            "size": 6808,
+            "id": 94
+          },
+          {
+            "name": "./node_modules/react-dom/lib/instantiateReactComponent.js",
+            "size": 5056,
+            "id": 95
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactNodeTypes.js",
+            "size": 1016,
+            "id": 96
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactEmptyComponent.js",
+            "size": 704,
+            "id": 97
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactHostComponent.js",
+            "size": 1977,
+            "id": 98
+          },
+          {
+            "name": "./node_modules/react-dom/lib/traverseAllChildren.js",
+            "size": 7038,
+            "id": 99
+          },
+          {
+            "name": "./node_modules/fbjs/lib/EventListener.js",
+            "size": 2374,
+            "id": 100
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactInputSelection.js",
+            "size": 4270,
+            "id": 101
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getActiveElement.js",
+            "size": 1038,
+            "id": 102
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactMount.js",
+            "size": 25507,
+            "id": 103
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getHostComponentFromComposite.js",
+            "size": 740,
+            "id": 104
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Checkbox.js",
+            "size": 4894,
+            "id": 105
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Tooltip.js",
+            "size": 2858,
+            "id": 106
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 517,
+            "id": 107
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/HeaderRow.js",
+            "size": 1938,
+            "id": 108
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/HeaderTabs.js",
+            "size": 1957,
+            "id": 109
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/List/ListItemContent.js",
+            "size": 3027,
+            "id": 110
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Radio.js",
+            "size": 5052,
+            "id": 111
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Tabs/Tab.js",
+            "size": 2652,
+            "id": 112
+          },
+          {
+            "name": "./build/Store/State.js",
+            "size": 732,
+            "id": 113
+          },
+          {
+            "name": "./build/Loader/LoadDays.js",
+            "size": 1958,
+            "id": 114
+          },
+          {
+            "name": "./build/Entity/DayType.js",
+            "size": 1145,
+            "id": 115
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/index.js",
+            "size": 224,
+            "id": 116
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/src/inflector.js",
+            "size": 1036,
+            "id": 117
+          },
+          {
+            "name": "./build/Loader/LoadPublicationData.js",
+            "size": 1881,
+            "id": 118
+          },
+          {
+            "name": "./build/Loader/Publication.js",
+            "size": 1204,
+            "id": 119
+          },
+          {
+            "name": "./build/Loader/UpdateDays.js",
+            "size": 1230,
+            "id": 120
+          },
+          {
+            "name": "./build/Entity/EditedIrregularDay.js",
+            "size": 2104,
+            "id": 121
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/SelectField/SelectField.js",
+            "size": 11029,
+            "id": 122
+          },
+          {
+            "name": "multi ./build/main.js ./styles/main.scss ./node_modules/lencse-getmdl-dashboard/build/dark-material.js ./node_modules/lencse-getmdl-dashboard/build/dark-material-vendor.css",
+            "size": 64,
+            "id": 123
+          },
+          {
+            "name": "./build/main.js",
+            "size": 333,
+            "id": 124
+          },
+          {
+            "name": "./node_modules/react/lib/ReactChildren.js",
+            "size": 6189,
+            "id": 125
+          },
+          {
+            "name": "./node_modules/react/lib/PooledClass.js",
+            "size": 3356,
+            "id": 126
+          },
+          {
+            "name": "./node_modules/react/lib/traverseAllChildren.js",
+            "size": 7030,
+            "id": 127
+          },
+          {
+            "name": "./node_modules/react/lib/KeyEscapeUtils.js",
+            "size": 1294,
+            "id": 128
+          },
+          {
+            "name": "./node_modules/react/lib/ReactDOMFactories.js",
+            "size": 5481,
+            "id": 129
+          },
+          {
+            "name": "./node_modules/react/lib/checkReactTypeSpec.js",
+            "size": 4193,
+            "id": 130
+          },
+          {
+            "name": "./node_modules/react/lib/ReactPropTypeLocationNames.js",
+            "size": 572,
+            "id": 131
+          },
+          {
+            "name": "./node_modules/react/lib/ReactPropTypesSecret.js",
+            "size": 442,
+            "id": 132
+          },
+          {
+            "name": "./node_modules/react/lib/ReactPropTypes.js",
+            "size": 500,
+            "id": 133
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2935,
+            "id": 134
+          },
+          {
+            "name": "./node_modules/react/lib/ReactVersion.js",
+            "size": 350,
+            "id": 135
+          },
+          {
+            "name": "./node_modules/react/lib/createClass.js",
+            "size": 688,
+            "id": 136
+          },
+          {
+            "name": "./node_modules/create-react-class/factory.js",
+            "size": 28376,
+            "id": 137
+          },
+          {
+            "name": "./node_modules/react/lib/onlyChild.js",
+            "size": 1338,
+            "id": 138
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOM.js",
+            "size": 5170,
+            "id": 139
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDefaultInjection.js",
+            "size": 3501,
+            "id": 140
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ARIADOMPropertyConfig.js",
+            "size": 1816,
+            "id": 141
+          },
+          {
+            "name": "./node_modules/react-dom/lib/BeforeInputEventPlugin.js",
+            "size": 13251,
+            "id": 142
+          },
+          {
+            "name": "./node_modules/react-dom/lib/FallbackCompositionState.js",
+            "size": 2426,
+            "id": 143
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticCompositionEvent.js",
+            "size": 1099,
+            "id": 144
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticInputEvent.js",
+            "size": 1089,
+            "id": 145
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ChangeEventPlugin.js",
+            "size": 10820,
+            "id": 146
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactRef.js",
+            "size": 2557,
+            "id": 147
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactOwner.js",
+            "size": 3527,
+            "id": 148
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDebugTool.js",
+            "size": 11661,
+            "id": 149
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactInvalidSetStateWarningHook.js",
+            "size": 984,
+            "id": 150
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactHostOperationHistoryHook.js",
+            "size": 736,
+            "id": 151
+          },
+          {
+            "name": "./node_modules/fbjs/lib/performanceNow.js",
+            "size": 845,
+            "id": 152
+          },
+          {
+            "name": "./node_modules/fbjs/lib/performance.js",
+            "size": 588,
+            "id": 153
+          },
+          {
+            "name": "./node_modules/react-dom/lib/DefaultEventPluginOrder.js",
+            "size": 1077,
+            "id": 154
+          },
+          {
+            "name": "./node_modules/react-dom/lib/EnterLeaveEventPlugin.js",
+            "size": 3154,
+            "id": 155
+          },
+          {
+            "name": "./node_modules/react-dom/lib/HTMLDOMPropertyConfig.js",
+            "size": 6571,
+            "id": 156
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactComponentBrowserEnvironment.js",
+            "size": 904,
+            "id": 157
+          },
+          {
+            "name": "./node_modules/react-dom/lib/Danger.js",
+            "size": 2240,
+            "id": 158
+          },
+          {
+            "name": "./node_modules/fbjs/lib/createNodesFromMarkup.js",
+            "size": 2662,
+            "id": 159
+          },
+          {
+            "name": "./node_modules/fbjs/lib/createArrayFromMixed.js",
+            "size": 4113,
+            "id": 160
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getMarkupWrap.js",
+            "size": 3035,
+            "id": 161
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMIDOperations.js",
+            "size": 955,
+            "id": 162
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMComponent.js",
+            "size": 38923,
+            "id": 163
+          },
+          {
+            "name": "./node_modules/react-dom/lib/AutoFocusUtils.js",
+            "size": 599,
+            "id": 164
+          },
+          {
+            "name": "./node_modules/react-dom/lib/CSSPropertyOperations.js",
+            "size": 7197,
+            "id": 165
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelizeStyleName.js",
+            "size": 1001,
+            "id": 166
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelize.js",
+            "size": 708,
+            "id": 167
+          },
+          {
+            "name": "./node_modules/react-dom/lib/dangerousStyleValue.js",
+            "size": 3061,
+            "id": 168
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenateStyleName.js",
+            "size": 974,
+            "id": 169
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenate.js",
+            "size": 800,
+            "id": 170
+          },
+          {
+            "name": "./node_modules/fbjs/lib/memoizeStringOnly.js",
+            "size": 698,
+            "id": 171
+          },
+          {
+            "name": "./node_modules/react-dom/lib/quoteAttributeValueForBrowser.js",
+            "size": 700,
+            "id": 172
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactEventEmitterMixin.js",
+            "size": 958,
+            "id": 173
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getVendorPrefixedEventName.js",
+            "size": 2869,
+            "id": 174
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMInput.js",
+            "size": 13078,
+            "id": 175
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMOption.js",
+            "size": 3687,
+            "id": 176
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMTextarea.js",
+            "size": 6464,
+            "id": 177
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactMultiChild.js",
+            "size": 14556,
+            "id": 178
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactChildReconciler.js",
+            "size": 6106,
+            "id": 179
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactCompositeComponent.js",
+            "size": 35192,
+            "id": 180
+          },
+          {
+            "name": "./node_modules/react-dom/lib/checkReactTypeSpec.js",
+            "size": 4209,
+            "id": 181
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactPropTypeLocationNames.js",
+            "size": 572,
+            "id": 182
+          },
+          {
+            "name": "./node_modules/react/lib/getNextDebugID.js",
+            "size": 437,
+            "id": 183
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactElementSymbol.js",
+            "size": 622,
+            "id": 184
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getIteratorFn.js",
+            "size": 1119,
+            "id": 185
+          },
+          {
+            "name": "./node_modules/react-dom/lib/flattenChildren.js",
+            "size": 2773,
+            "id": 186
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactServerRenderingTransaction.js",
+            "size": 2288,
+            "id": 187
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactServerUpdateQueue.js",
+            "size": 4828,
+            "id": 188
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMEmptyComponent.js",
+            "size": 1902,
+            "id": 189
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMTreeTraversal.js",
+            "size": 3721,
+            "id": 190
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMTextComponent.js",
+            "size": 5814,
+            "id": 191
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDefaultBatchingStrategy.js",
+            "size": 1880,
+            "id": 192
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactEventListener.js",
+            "size": 5297,
+            "id": 193
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getUnboundedScrollPosition.js",
+            "size": 1122,
+            "id": 194
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactInjection.js",
+            "size": 1200,
+            "id": 195
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactReconcileTransaction.js",
+            "size": 5259,
+            "id": 196
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMSelection.js",
+            "size": 6776,
+            "id": 197
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getNodeForCharacterOffset.js",
+            "size": 1617,
+            "id": 198
+          },
+          {
+            "name": "./node_modules/fbjs/lib/containsNode.js",
+            "size": 1049,
+            "id": 199
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isTextNode.js",
+            "size": 605,
+            "id": 200
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isNode.js",
+            "size": 828,
+            "id": 201
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SVGDOMPropertyConfig.js",
+            "size": 7318,
+            "id": 202
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SelectEventPlugin.js",
+            "size": 6057,
+            "id": 203
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SimpleEventPlugin.js",
+            "size": 7973,
+            "id": 204
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticAnimationEvent.js",
+            "size": 1209,
+            "id": 205
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticClipboardEvent.js",
+            "size": 1169,
+            "id": 206
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticFocusEvent.js",
+            "size": 1066,
+            "id": 207
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticKeyboardEvent.js",
+            "size": 2705,
+            "id": 208
+          },
+          {
+            "name": "./node_modules/react-dom/lib/getEventKey.js",
+            "size": 2868,
+            "id": 209
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticDragEvent.js",
+            "size": 1071,
+            "id": 210
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticTouchEvent.js",
+            "size": 1277,
+            "id": 211
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticTransitionEvent.js",
+            "size": 1226,
+            "id": 212
+          },
+          {
+            "name": "./node_modules/react-dom/lib/SyntheticWheelEvent.js",
+            "size": 1924,
+            "id": 213
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMContainerInfo.js",
+            "size": 967,
+            "id": 214
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMFeatureFlags.js",
+            "size": 439,
+            "id": 215
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactMarkupChecksum.js",
+            "size": 1472,
+            "id": 216
+          },
+          {
+            "name": "./node_modules/react-dom/lib/adler32.js",
+            "size": 1191,
+            "id": 217
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactVersion.js",
+            "size": 350,
+            "id": 218
+          },
+          {
+            "name": "./node_modules/react-dom/lib/findDOMNode.js",
+            "size": 2465,
+            "id": 219
+          },
+          {
+            "name": "./node_modules/react-dom/lib/renderSubtreeIntoContainer.js",
+            "size": 422,
+            "id": 220
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMUnknownPropertyHook.js",
+            "size": 4319,
+            "id": 221
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMNullInputValuePropHook.js",
+            "size": 1368,
+            "id": 222
+          },
+          {
+            "name": "./node_modules/react-dom/lib/ReactDOMInvalidARIAHook.js",
+            "size": 3140,
+            "id": 223
+          },
+          {
+            "name": "./build/Component/AdminMain.js",
+            "size": 2926,
+            "id": 224
+          },
+          {
+            "name": "./build/Component/Layout.js",
+            "size": 2863,
+            "id": 225
+          },
+          {
+            "name": "./build/Component/Header.js",
+            "size": 3883,
+            "id": 226
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
+            "size": 1594,
+            "id": 227
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/utils/palette.js",
+            "size": 573,
+            "id": 228
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Badge/index.js",
+            "size": 2456,
+            "id": 229
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Card/index.js",
+            "size": 1324,
+            "id": 230
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Card/Card.js",
+            "size": 2120,
+            "id": 231
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Card/CardTitle.js",
+            "size": 1769,
+            "id": 232
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Card/CardActions.js",
+            "size": 1607,
+            "id": 233
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Chip/index.js",
+            "size": 3215,
+            "id": 234
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/DataTable/index.js",
+            "size": 707,
+            "id": 235
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/DataTable/Table.js",
+            "size": 7718,
+            "id": 236
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/DataTable/Selectable.js",
+            "size": 10196,
+            "id": 237
+          },
+          {
+            "name": "./node_modules/lodash.isequal/index.js",
+            "size": 49598,
+            "id": 238
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/DataTable/Sortable.js",
+            "size": 8635,
+            "id": 239
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Dialog/index.js",
+            "size": 1129,
+            "id": 240
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Dialog/Dialog.js",
+            "size": 5485,
+            "id": 241
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Dialog/DialogTitle.js",
+            "size": 1603,
+            "id": 242
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Dialog/DialogActions.js",
+            "size": 1619,
+            "id": 243
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/FABButton.js",
+            "size": 1659,
+            "id": 244
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Footer/index.js",
+            "size": 978,
+            "id": 245
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Footer/Footer.js",
+            "size": 1983,
+            "id": 246
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Footer/Section.js",
+            "size": 2353,
+            "id": 247
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Footer/DropDownSection.js",
+            "size": 2427,
+            "id": 248
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Footer/LinkList.js",
+            "size": 2025,
+            "id": 249
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Grid/index.js",
+            "size": 674,
+            "id": 250
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Grid/Grid.js",
+            "size": 2434,
+            "id": 251
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Grid/Cell.js",
+            "size": 4354,
+            "id": 252
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/IconButton.js",
+            "size": 1714,
+            "id": 253
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/IconToggle.js",
+            "size": 4878,
+            "id": 254
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/index.js",
+            "size": 1696,
+            "id": 255
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Layout.js",
+            "size": 4255,
+            "id": 256
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Content.js",
+            "size": 1618,
+            "id": 257
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Drawer.js",
+            "size": 1661,
+            "id": 258
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Header.js",
+            "size": 2926,
+            "id": 259
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Layout/Navigation.js",
+            "size": 1886,
+            "id": 260
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/List/index.js",
+            "size": 1123,
+            "id": 261
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/List/ListItem.js",
+            "size": 2374,
+            "id": 262
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/List/ListItemAction.js",
+            "size": 1915,
+            "id": 263
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Menu.js",
+            "size": 5392,
+            "id": 264
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/ProgressBar.js",
+            "size": 4811,
+            "id": 265
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/RadioGroup.js",
+            "size": 2827,
+            "id": 266
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Slider.js",
+            "size": 3982,
+            "id": 267
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Snackbar/index.js",
+            "size": 6256,
+            "id": 268
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Spinner.js",
+            "size": 3708,
+            "id": 269
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Switch.js",
+            "size": 4757,
+            "id": 270
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Tabs/index.js",
+            "size": 708,
+            "id": 271
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Tabs/Tabs.js",
+            "size": 2680,
+            "id": 272
+          },
+          {
+            "name": "./node_modules/react-mdl/lib/Textfield.js",
+            "size": 9112,
+            "id": 273
+          },
+          {
+            "name": "./build/Config/config.js",
+            "size": 237,
+            "id": 274
+          },
+          {
+            "name": "./config/config.json",
+            "size": 31,
+            "id": 275
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/src/serializer.js",
+            "size": 1724,
+            "id": 276
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/src/serializer-utils.js",
+            "size": 9762,
+            "id": 277
+          },
+          {
+            "name": "./node_modules/inflected/index.js",
+            "size": 60,
+            "id": 278
+          },
+          {
+            "name": "./node_modules/inflected/lib/Inflector.js",
+            "size": 908,
+            "id": 279
+          },
+          {
+            "name": "./node_modules/inflected/lib/Inflections.js",
+            "size": 3362,
+            "id": 280
+          },
+          {
+            "name": "./node_modules/inflected/lib/hasProp.js",
+            "size": 160,
+            "id": 281
+          },
+          {
+            "name": "./node_modules/inflected/lib/remove.js",
+            "size": 224,
+            "id": 282
+          },
+          {
+            "name": "./node_modules/inflected/lib/icPart.js",
+            "size": 186,
+            "id": 283
+          },
+          {
+            "name": "./node_modules/inflected/lib/Transliterator.js",
+            "size": 3289,
+            "id": 284
+          },
+          {
+            "name": "./node_modules/inflected/lib/Methods.js",
+            "size": 5920,
+            "id": 285
+          },
+          {
+            "name": "./node_modules/inflected/lib/defaults.js",
+            "size": 2549,
+            "id": 286
+          },
+          {
+            "name": "./node_modules/inflected/lib/isFunc.js",
+            "size": 162,
+            "id": 287
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/src/deserializer.js",
+            "size": 1019,
+            "id": 288
+          },
+          {
+            "name": "./node_modules/ts-jsonapi/lib/src/deserializer-utils.js",
+            "size": 4324,
+            "id": 289
+          },
+          {
+            "name": "./build/Loader/LoadDayTypes.js",
+            "size": 1729,
+            "id": 290
+          },
+          {
+            "name": "./build/Loader/Loading.js",
+            "size": 1166,
+            "id": 291
+          },
+          {
+            "name": "./build/Loader/EndLoading.js",
+            "size": 1188,
+            "id": 292
+          },
+          {
+            "name": "./build/Loader/Publish.js",
+            "size": 2685,
+            "id": 293
+          },
+          {
+            "name": "./build/Loader/Reset.js",
+            "size": 2663,
+            "id": 294
+          },
+          {
+            "name": "./build/Component/Content.js",
+            "size": 2836,
+            "id": 295
+          },
+          {
+            "name": "./build/Component/YearContainer.js",
+            "size": 2900,
+            "id": 296
+          },
+          {
+            "name": "./build/Component/IrregularDays.js",
+            "size": 3111,
+            "id": 297
+          },
+          {
+            "name": "./build/Component/Day.js",
+            "size": 5260,
+            "id": 298
+          },
+          {
+            "name": "./node_modules/react-click-outside/dist/index.js",
+            "size": 4100,
+            "id": 299
+          },
+          {
+            "name": "./node_modules/hoist-non-react-statics/index.js",
+            "size": 2001,
+            "id": 300
+          },
+          {
+            "name": "./build/Loader/DeleteDay.js",
+            "size": 2539,
+            "id": 301
+          },
+          {
+            "name": "./build/Loader/EditDay.js",
+            "size": 1286,
+            "id": 302
+          },
+          {
+            "name": "./build/Loader/CancelDelete.js",
+            "size": 1459,
+            "id": 303
+          },
+          {
+            "name": "./build/Loader/MarkForDelete.js",
+            "size": 1465,
+            "id": 304
+          },
+          {
+            "name": "./build/Component/AddIrregularDay.js",
+            "size": 5900,
+            "id": 305
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/index.js",
+            "size": 746,
+            "id": 306
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/SelectField/SelectField.scss",
+            "size": 41,
+            "id": 307
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/MultiSelectField/MultiSelectField.js",
+            "size": 6138,
+            "id": 308
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/MultiSelectField/MultiSelectField.scss",
+            "size": 41,
+            "id": 309
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/MultiSelectField/Tag.js",
+            "size": 984,
+            "id": 310
+          },
+          {
+            "name": "./node_modules/react-mdl-selectfield/es/Option/Option.js",
+            "size": 798,
+            "id": 311
+          },
+          {
+            "name": "./build/Loader/NewDay.js",
+            "size": 1230,
+            "id": 312
+          },
+          {
+            "name": "./build/Loader/CancelEdit.js",
+            "size": 1160,
+            "id": 313
+          },
+          {
+            "name": "./build/Loader/UpdateEditingDay.js",
+            "size": 1311,
+            "id": 314
+          },
+          {
+            "name": "./build/Loader/SaveDay.js",
+            "size": 3422,
+            "id": 315
+          },
+          {
+            "name": "./styles/main.scss",
+            "size": 41,
+            "id": 316
+          },
+          {
+            "name": "./node_modules/lencse-getmdl-dashboard/build/dark-material.js",
+            "size": 462094,
+            "id": 317
+          },
+          {
+            "name": "./node_modules/lencse-getmdl-dashboard/build/dark-material-vendor.css",
+            "size": 41,
+            "id": 318
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 185926,
+    "unPureCssSize": 185724
+  }
+]
