@@ -5,7 +5,7 @@ const dirs = {
     views: 'views',
     styles: 'styles',
     build: 'build',
-    dist: 'dist',
+    dist: 'dist/admin-frontend',
     getMdlDashboard: 'node_modules/lencse-getmdl-dashboard',
     config: 'config'
 }

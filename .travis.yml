@@ -9,3 +9,10 @@ before_script:
     - NODE_ENV=$NODE_ENV yarn build
 script:
     - yarn test
+deploy:
+    provider: pages
+    local_dir: dist/webpack-monitor
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+        branch: master

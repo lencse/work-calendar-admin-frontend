@@ -6,6 +6,7 @@ import * as UglifyjsWebpackPlugin from 'uglifyjs-webpack-plugin'
 import * as OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin'
 import * as cssnano from 'cssnano'
 import * as CopyWebpackPlugin from 'copy-webpack-plugin'
+import * as WebpackMonitor from 'webpack-monitor'
 import dirs from './dirs'
 
 interface Config {
@@ -62,6 +63,11 @@ const config: Configs = {
                         comments: false
                     }
                 }
+            }),
+            new WebpackMonitor({
+                capture: true,
+                launch: false,
+                target: '../dist/webpack-monitor/stats.json'
             })
         ],
         fileNames: {

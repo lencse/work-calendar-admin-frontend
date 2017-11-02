@@ -15,13 +15,15 @@
     "clean": "rm -rf build dist",
     "build-typescript": "tsc -p ./src --outDir ./build",
     "build-webpack": "webpack --colors --progress --config ./ci/bin/webpack.config.js",
-    "build": "yarn run clean && yarn build-typescript && yarn build-webpack",
+    "build": "yarn run clean && yarn build-webpack-monitor && yarn build-typescript && yarn build-webpack",
     "watch-typescript": "tsc -p ./src --outDir ./build --watch",
     "watch-webpack": "webpack-dev-server --config ./ci/bin/webpack.config.js --port 8211",
     "watch": "yarn run clean && (yarn watch-typescript & yarn watch-webpack)",
     "postinstall": "yarn build-ci && yarn write-config-file",
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "test": "yarn lint && if [ ! -f ./dist/index.html ]; then echo \"index.html is missing\"; exit 1; fi; if [ ! -d ./dist/js ]; then echo \"dist/js is missing\"; exit 1; fi; if [ ! -d ./dist/css ]; then echo \"dist/css is missing\"; exit 1; fi; if [ ! -d ./dist/images ]; then echo \"dist/images is missing\"; exit 1; fi; find -L dist"
+    "test": "yarn lint && if [ ! -f ./dist/admin-frontend/index.html ]; then echo \"index.html is missing\"; exit 1; fi; if [ ! -d ./dist/admin-frontend/js ]; then echo \"dist/admin-frontend/js is missing\"; exit 1; fi; if [ ! -d ./dist/admin-frontend/css ]; then echo \"dist/admin-frontend/css is missing\"; exit 1; fi; if [ ! -d ./dist/admin-frontend/images ]; then echo \"dist/admin-frontend/images is missing\"; exit 1; fi; find -L dist",
+    "build-webpack-monitor": "mkdir dist && yarn copy-webpack-monitor",
+    "copy-webpack-monitor": "cp -R node_modules/webpack-monitor/build dist/webpack-monitor && sed -i -e 's/\\/getstats/stats.json/g' dist/webpack-monitor/app.js"
   },
   "devDependencies": {
     "@types/colors": "^1.1.3",
@@ -49,7 +51,8 @@
     "typescript": "^2.4.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "webpack-monitor": "^1.0.13"
   },
   "dependencies": {
     "12factor-config": "^1.3.1",
